@@ -15,15 +15,15 @@ var navbarHeight = commonVar["navbar-height"].replace(/\px/g, ''); //commonVar„Å
 </head>
 <body data-spy="scroll" data-target="#navbarMenu" data-offset="<%= navbarHeight %>" class="<%= id %>Page" id="<%= id %>Page">
 
-<%- include("index/_loading") %>
-
 <div id="wrapper">
+<div id="barba-wrapper">
+<div class="barba-container">
 <%- include("partial/_header", { variables, id, commonVar }) %>
 
 <%- include("index/_eyecatch", { variables, id }) %>
 
     <!-- main -->
-    <main class="main <%= id %>">
+    <main class="main <%= id %>" id="<%= id %>Main">
         <ol class="breadcrumb">
             <li class="active"><a href="./"><i class="fa fa-fw fa-home" aria-hidden="true"></i>„Éõ„Éº„É†</a></li>
         </ol>
@@ -44,7 +44,7 @@ var navbarHeight = commonVar["navbar-height"].replace(/\px/g, ''); //commonVar„Å
         var idTime = newsjson.news[i].time.replace(/\//g, "");
 %>
                         <li class="list-group-item">
-                            <a href="./news/news1.html#<%= newsjson.news[i].id %>-<%= idTime %>">
+                            <a href="./news/news1.html?anchor=<%= newsjson.news[i].id %>-<%= idTime %>">
                                 <h3 class="news_header"><%= newsjson.news[i].title %></h3>
                                 <time class="news_createtime" datetime="<%= datetime %>"><%= newsjson.news[i].time %></time>
                                 <p><%- newsjson.news[i].excerpt %></p>
@@ -88,12 +88,15 @@ var navbarHeight = commonVar["navbar-height"].replace(/\px/g, ''); //commonVar„Å
     </main>
     <!-- /main -->
 
+</div>
+</div>
 <%- include("partial/_footer", { variables, id, copyRightYear }) %>
 
 </div>
 
+<%- include("partial/_barba_effect", { id }) %>
+
 <script src="<%= path %>js/lib.min.js"></script>
-<script src="<%= path %>js/progress.min.js"></script>
 <script src="<%= path %>js/<%= variables.param[id].js %>.js"></script>
 </body>
 </html>

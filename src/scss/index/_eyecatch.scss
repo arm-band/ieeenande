@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-.indexPage .eyecatch {
+.indexEyecatch {
     $background-position: center center;
     $eyecacth-height: 100vh;
 
@@ -9,7 +9,7 @@
     overflow: hidden;
     @include eyecatchBGImg("../img/eyecatch.jpg");
     @include eyecatchCenter();
-    &_header {
+    .eyecatch_header {
         @include eyecatchTypo(calc(4em + 4vw));
     }
 }

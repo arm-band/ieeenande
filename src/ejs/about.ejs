@@ -13,32 +13,97 @@ id = filename.slice(filename.lastIndexOf("\\") + 1).replace(/\.ejs/g, ''); //PC�
 <body class="<%= id %>Page" id="<%= id %>Page">
 
 <div id="wrapper">
+<div id="barba-wrapper">
+<div class="barba-container">
 <%- include("partial/_header", { variables, id, commonVar }) %>
 
 <%- include("partial/_eyecatch", { variables, id }) %>
 
     <!-- main -->
-    <main class="main <%= id %>">
+    <main class="main <%= id %>" id="<%= id %>Main">
 <%- include("partial/_breadcrumb", { variables, id }) %>
         <section class="container-fluid">
             <div class="row">
                 <article class="col-xs-12">
                     <div class="page-header">
-                        <h2>What's this page? <small>About page</small></h2>
+                        <h2>このサイトについて<small>About Site</small></h2>
                     </div>
-                    <p>自分用の小規模Webサイト制作用テンプレートです。<br>主にデモやテストサイト用で、scss, ejs, gulp対応。</p>
-                    <h3>名前の由来</h3>
-                    <p>Bootstrapを使っていることから。Bootstrapが電源投入、自動実行といった意味合いなので、何か物事を始めるイメージと火で火打石を連想。「Hiuchiishi」だと長いのと、これから事を始めるに当たって魔除けの意味も込めて切り火からKiribi。</p>
-                    <p>gulpを使っている方はgulpが飲み込む、ごくごくと飲むという意味(だからシェイクのロゴなのですね)なので、火の神様というか仏教の明王で、一切不浄を飲み込み浄化する烏枢沙摩明王からお名前をお借りしました。</p>
+                    <blockquote>
+                        <p>千のホームページ、万のWebアプリを象り、築きに築いた屍塚。</p>
+                        <p>此処に辿るはあらゆるトライ&amp;エラー。</p>
+                        <p>此処に示すはあらゆるバグ。</p>
+                        <p>此処に積もるはあらゆる怨嗟―――</p>
+                    </blockquote>
+                    <p>つまるところ、長らくWindows標準ブラウザとしてユーザーに使われてきたInternet Explorerが、どれだけプログラマやエンジニアを泣かせ続け、死屍累々たる屍の山を築いてきたかを紹介するページです。</p>
                 </article>
+            </div>
+        </section>
+        <section class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 page-header">
+                    <h2>IEへのメッセージ<small>Messages for IE</small></h2>
+                </div>
+                <section class="col-sm-12 col-md-4 col-lg-3">
+                    <blockquote>
+                        <p>やったッ！！</p>
+                    </blockquote>
+                    <blockquote>
+                        <p>さすがIE！モダンブラウザたちにできない事を平然とやってのけるッ！そこにシビれない！あこがれないィ！！！</p>
+                    </blockquote>
+                </section>
+                <section class="col-sm-12 col-md-4 col-lg-3">
+                    <blockquote>
+                        <p>えーマジーIE？！キモーイ！！</p>
+                    </blockquote>
+                    <blockquote>
+                        <p>IEが許されるのは小学生までだよねー？！</p>
+                    </blockquote>
+                    <blockquote>
+                        <p>キャハハハハハ</p>
+                    </blockquote>
+                </section>
+                <section class="col-sm-12 col-md-4 col-lg-3">
+                    <blockquote>
+                        <p>IEEE！？</p>
+                    </blockquote>
+                    <blockquote>
+                        <p>IE！？IEナンデ！？</p>
+                    </blockquote>
+                    <blockquote>
+                        <p>コワイ！</p>
+                    </blockquote>
+                    <blockquote>
+                        <p>ゴボボーッ！</p>
+                    </blockquote>
+                    <p>明け方を迎えようとするWebプログラマー達はバグのあまり容易に失禁し、嘔吐した。</p>
+                </section>
+                <section class="col-sm-12 col-md-4 col-lg-3">
+                    <blockquote>
+                        <p>IEはオワコン</p>
+                    </blockquote>
+                </section>
+                <section class="col-sm-12 col-md-4 col-lg-3">
+                    <blockquote>
+                        <p>ただしIE、テメーはダメだ</p>
+                    </blockquote>
+                </section>
+                <section class="col-sm-12 col-md-4 col-lg-3">
+                    <blockquote>
+                        <p>一体いつから───────IE11が最新モダンブラウザだと錯覚していた？</p>
+                    </blockquote>
+                </section>
             </div>
         </section>
     </main>
     <!-- /main -->
 
+</div>
+</div>
 <%- include("partial/_footer", { variables, id, copyRightYear }) %>
 
 </div>
+
+<%- include("partial/_barba_effect", { id }) %>
 
 <script src="<%= path %>js/lib.min.js"></script>
 <script src="<%= path %>js/<%= variables.param[id].js %>.js"></script>

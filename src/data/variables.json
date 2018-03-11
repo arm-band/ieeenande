@@ -1,6 +1,6 @@
 {
     "commons": {
-        "sitename": "Kiribi Ususama",
+        "sitename": "IE△(さんかっけー)",
         "year": "2018",
         "author": "アルム＝バンド"
     },
@@ -10,24 +10,24 @@
             "entitle": "Home",
             "css": "index",
             "js": "app.min",
-            "description": "gulpとEJSに対応したBootstrap Minimal Template",
+            "description": "Internet Explorer。それは常に我々を苛み、苦しめ、悩みと頭痛の種であり続けた存在だった。驚くべきことに、この苦しみは過去のものではなく、2018年にもなってなお、未だに多くの人々を苦しめ続けているのです！",
             "hierarchy": 0,
             "newscount": 5
         },
         "about": {
             "title": "概要",
             "entitle": "About Page",
-            "css": "contents",
+            "css": "index",
             "js": "app.min",
-            "description": "このページについての説明です。",
+            "description": "このページについての説明です。IEさんへのアツいメッセージをここに記します。",
             "hierarchy": 0
         },
         "news": {
-            "title": "更新履歴",
+            "title": "記事一覧",
             "entitle": "News",
-            "css": "contents",
+            "css": "index",
             "js": "app.min",
-            "description": "更新履歴の一覧です。",
+            "description": "IEさんの素晴らしい(そして吐き気を催すほどのダメっ子ぶりの)功績の数々です。",
             "hierarchy": 1
         }
     }

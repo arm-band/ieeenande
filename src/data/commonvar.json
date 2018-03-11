@@ -1,9 +1,10 @@
 {
     "color": "#333",
     "bg-color": "#fff",
-    "main-color": "#1586BF",
-    "accent-color": "#CD384B",
-    "link-color": "#58C7AD",
+    "main-color": "#1EBBEE",
+    "main-color3": "#3153F1",
+    "accent-color": "#FF8E17",
+    "link-color": "#FFBB17",
     "navbar-height": "80px",
     "line-height": "1.6",
     "letter-spacing": "0.15rem"

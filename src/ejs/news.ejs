@@ -17,12 +17,14 @@ var newsBlock = newsBlock;
 <body class="<%= id %>Page" id="<%= id %>Page">
 
 <div id="wrapper">
+<div id="barba-wrapper">
+<div class="barba-container">
 <%- include("partial/_header", { variables, id, commonVar }) %>
 
 <%- include("partial/_eyecatch", { variables, id }) %>
 
     <!-- main -->
-    <main class="main <%= id %>">
+    <main class="main <%= id %>" id="<%= id %>Main">
 <%- include("partial/_breadcrumb", { variables, id }) %>
         <section class="container-fluid">
             <div class="row">
@@ -60,9 +62,13 @@ var newsBlock = newsBlock;
     </main>
     <!-- /main -->
 
+</div>
+</div>
 <%- include("partial/_footer", { variables, id, copyRightYear }) %>
 
 </div>
+
+<%- include("partial/_barba_effect", { id }) %>
 
 <script src="<%= path %>js/lib.min.js"></script>
 <script src="<%= path %>js/<%= variables.param[id].js %>.js"></script>

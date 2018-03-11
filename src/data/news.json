@@ -1,275 +1,190 @@
 {
     "news":[
         {
-            "id": "releasenote",
-            "title": "ver.2.6.7",
-            "time": "2018/3/9",
+            "id": "break_a_promise",
+            "title": "Promiseを使った処理をIE11で流そうとしたら怒られた",
+            "time": "2018/01/25",
             "excerpt": "jsonデータで改行を許すように、パース前に改行等を除去する処理を追記",
-            "content": "<p>jsonデータで改行を許すように、ファイルリードしたデータをエンコードしてパース前に半角スペース・タブ・改行を除去する処理を<code>gulpfile.js</code>に追記。</p>"
+            "content": "<p><a href=\"http://barbajs.org/index.html\">Barba.js</a>を使ったデモを作って、IEで動作確認したら……動かない。</p>
+<p>エラーメッセージは以下の通り。</p>
+<blockquote>
+<p>Possible Unhandled Promise Rejection: TypeError: 未定義または NULL 参照のプロパティ &#8216;isWebKit&#8217; は取得できません</p>
+</blockquote>
+<p><q>Unhandled Promise</q>というところが引っかかりますね。「IEさんもしかしてPromise使えないとか？」と思って検索。</p>
+<ul>
+<li><a href=\"http://blog.malor.net/entry/react-ie11-error\">Reactアプリを IE11 で表示すると 「オブジェクトは &apos;startsWith&apos; プロパティまたはメソッドをサポートしていません。」 が発生する &#8211; ＊いしのなかにいる＊</a></li>
+<li><a href=\"https://qiita.com/zERobYTezERo/items/ac458c4cf2a8f2f6c3dd\">Promiseのpolyfill(IE11お前もか!) &#8211; Qiita</a></li>
+<li><a href=\"https://qiita.com/nanocloudx/items/5e2e55a767fd4c37ac1b\">IEでPromiseを利用する &#8211; Qiita</a></li>
+</ul>
+<p>案の定、ES6のPromiseは使えないと来ました。やっぱりか。「えーマジPromise使えないの！？」「Promise使えないのが許されるのはNetscapeまでだよねー」という感じです。</p>
+<p>回避策としては次の通り。</p>
+<ol>
+<li>ブラウザ判定して逃げる(そもそもBarba.jsを動かさない)</li>
+<li>Polyfill</li>
+<li>Babel</li>
+</ol>
+<p>PolyfillとBabelは似たような感じですが、BabelだけがPolyfillではないですし、BabelはBabelで有名すぎるので気分的に別枠にしたいところ。</p>
+<p>結局数種類のPolyfillを試してダメで、本家Barba.jsのSampleに上がっているサイトもIEだけはそれっぽいアニメーションでお茶を濁したり、全く違う動作をしていたりしていて「あ、これは根本的にダメくさい」と悟ったので諦めました。IEさんは平気で約束をすっぽかしたりするズボラなブラウザということがよく分かりました。</p>"
         },
         {
-            "id": "releasenote",
-            "title": "ver.2.6.6",
-            "time": "2018/3/6",
-            "excerpt": "Frontnote周りを改修",
-            "content": "<p>Frontnote周りを改修。</p>
-            <ul>
-                <li>出力先パスを変更</li>
-                <li>Frontnote関連のコードを<code>sg/src/</code>ディレクトリにまとめた</li>
-                <li>テンプレートを作成。<code>commonVar.json</code>キーで\"color\"と入っているキーからカラーパレットを生成することで、疑似的に「scssの変数からカラーパレットを生成」を実現</li>
-            </ul>"
+            "id": "openfont_cant_display",
+            "title": "Webフォントを指定するとIEで怒られる",
+            "time": "2018/01/25",
+            "excerpt": "IE(IE11)だけ指定したフォントで表示されません",
+            "content": "<p>ライセンス的に問題ないWebフォントをサーバにアップロードし、cssで読み込むように指定しました。</p>
+<pre><code>
+@font-face {
+    font-family: \"hogeFont\";
+    src: url(\"../hogefont/hogefont.otf\") format(\"opentype\");
+}
+
+font-family: \"hogeFont\";
+</code></pre>
+<p>すると、IE(IE11)だけ指定したフォントで表示されません。試しにF12でコンソールを開いてみると、次のエラーメッセージが表示されていました。</p>
+<blockquote>
+<p>@font-face で OpenType の埋め込みアクセス許可チェックに失敗しました。アクセス許可は Installable である必要があります。</p>
+</blockquote>
+<p>見たことのないエラーだったので調べてみました。</p>
+<ul>
+<li><a href=\"http://css3.sophia-it.com/reference/Web%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88%E3%82%92%E6%8C%87%E5%AE%9A%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF%EF%BC%9F\">Webフォントを指定するには？ &#8211; @font-faceの解説 &#8211; CSS3リファレンス</a></li>
+</ul>
+<p>Webフォント自体は対応しているようです。では、エラーメッセージで検索すると……</p>
+<ul>
+<li><a href=\"https://msdn.microsoft.com/ja-jp/library/hh180764(v=vs.85).aspx\">F12 開発者ツール コンソール エラー メッセージ (Windows)</a></li>
+<li><a href=\"https://teratail.com/questions/3614\">HTML &#8211; WEB FONT の使用について(3614)｜teratail</a></li>
+</ul>
+<p>どうやらIEで使用できるように変更を加えるソフト(<a href=\"http://carnage-melon.tom7.org/embed/\">Truetype embedding-enabler</a>)を使用して、ファイル自体に変更を加える必要があるようです。</p>
+<p>しかし、Windows10では動かず……。互換モードで動かせば動くかもしれませんが、ちょっと試すのは怖いですね……。</p>
+<p>IEはやはり手間取らせるのか……。</p>"
         },
         {
-            "id": "releasenote",
-            "title": "ver.2.6.5",
-            "time": "2018/3/5",
-            "excerpt": "Frontnote用のキャンセラーを用意",
-            "content": "<p>Frontnote用のキャンセラーを用意。</p>"
+            "id": "flexbox_align_right",
+            "title": "IE11でのflexboxのバグ",
+            "time": "2017/10/25",
+            "excerpt": "display: flex; justify-content:center; align-items:center;とすると2つ目のサイトのように右寄せになってしまってツラい……という話。",
+            "content": "<ul>
+<li><a href=\"https://qiita.com/sawadays0118/items/bd0731878e9eb49c03f5\">IE11のバグまとめ &#8211; Qiita</a></li>
+<li><a href=\"http://var.blog.jp/archives/68883432.html\">IE11 の flexbox の中央揃えが難しい</a></li>
+</ul>
+<p><code>display: flex; justify-content:center; align-items:center;</code>とすると2つ目のサイトのように右寄せになってしまってツラい……という話。</p>
+<p>やりたくはないですが、<code>left: 50%; transform: translateX(-50%);</code>で乗り切るという力技に……。</p>"
         },
         {
-            "id": "releasenote",
-            "title": "ver.2.6.4",
-            "time": "2018/3/5",
-            "excerpt": "タイポグラフィ整理。明朝体の指定でGoogle Fonts +のSawarabi Minchoを指定",
-            "content": "<p>タイポグラフィ整理。明朝体の指定でGoogle Fonts +のSawarabi Minchoを指定。</p>"
+            "id": "interchangeable_mode_cant_mapping",
+            "title": "「Google Maps JavaScript APIでサポートされていないブラウザを使用しています」というメッセージが表示される",
+            "time": "2017/10/24",
+            "excerpt": "とあるサイトで、「Google Maps JavaScript APIでサポートされていないブラウザを使用しています。ブラウザの変更をご検討ください。」というメッセージが画面上部に表示され、Googlemapが開かないという症状に遭遇しました。Windowsマシンで、IE11とのこと。",
+            "content": "<img src=\"../img/googlemapjsapi_error-20171023.jpg\" alt=\"Google Maps JavaScript APIでサポートされていないブラウザを使用しています。ブラウザの変更をご検討ください。\">
+<p>とあるサイトで、</p>
+<blockquote>
+<p>Google Maps JavaScript APIでサポートされていないブラウザを使用しています。ブラウザの変更をご検討ください。</p>
+</blockquote>
+<p>というメッセージが画面上部に表示され、Googlemapが開かないという症状に遭遇しました。Windowsマシンで、IE11とのこと。</p>
+<p>「IE11ならば問題ないはず……」と訝しんで検索すると</p>
+<ul>
+<li><a href=\"https://developers.google.com/maps/documentation/javascript/browsersupport?hl=ja\">対応ブラウザ  |  Google Maps JavaScript API  |  Google Developers</a></li>
+</ul>
+<blockquote>
+<p>注: Internet Explorer の互換表示には対応していません。</p>
+</blockquote>
+<p>……これか！</p>
+<p>確かに、該当するサイトは少し前のサイトなので<code>&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</code>を入れていないことを思い出しました。</p>
+<p>試しにこれをGooglemapを表示しているページに入れたところ、冒頭のメッセージは表示されず、きちんとマップも表示されるようになりました。</p>
+<p>一方、現象が発生したマシンの環境を調べてみると……案の定、互換表示設定を施してあり、該当サイトがIE7モードで表示されていました。なんでこんな設定に……。</p>"
         },
         {
-            "id": "releasenote",
-            "title": "ver.2.6.3",
-            "time": "2018/3/5",
-            "excerpt": "タイポグラフィ整理",
-            "content": "<p>タイポグラフィ整理。</p>"
+            "id": "win81_ie11_gyao_cant_play_movie",
+            "title": "Windows8.1のIE11でGyaoの動画が視聴できない",
+            "time": "2017/09/09",
+            "excerpt": "Windows8.1のIE11でGyaoの動画が視聴できない、というトラブルに遭遇",
+            "content": "<p>Windows8.1のIE11でGyaoの動画が視聴できない、というトラブルに遭遇。</p>
+<ul>
+<li>IE11のバージョンは最新（Windows Updateも確認したが、更新はなし）</li>
+<li>アドオンの管理でFlash Player(ShockWave Player)、Microsoft Silverlightは有効になっている</li>
+</ul>
+<p>といった状態で、他のマシン（OS, IE, Flash, Silverlight、いずれのバージョンも同じ）では閲覧できる、という困った状態でした。</p>
+<p>とりあえず「特定サイトが閲覧できない」ということなので、何かサイト側でエラー出てないか、F12でIE11の管理者ツールを起動、コンソールを見てみます。すると</p>
+<blockquote>
+<p>
+アクセスが拒否されました。
+</p>
+</blockquote>
+<p>というエラーメッセージが。出ているのは、<code>windwow.storage</code>にアクセスする部分。なるほど、サイトからマシン上のlolalStorageにアクセスしようとして権限（またはlocalStorageの保存ファイルが壊れてるなどの理由で）で拒否されている、と。これをどうにかできれば、改善できそうです。ということで「localStorage アクセスが拒否されました IE11 Windows8.1」といったキーワードで検索。</p>
+<ul>
+<li><a href=\"http://qiita.com/hida/items/5570e390781b6f118a4f\">IE11でLocalStorageが使えない時の対処法 &#8211; Qiita</a></li>
+</ul>
+<p>ありました。ということで、コマンドプロンプトを管理者で実行、</p>
+<pre><code>
+> icacls %userprofile%\\AppData\\LocalLow /t /setintegritylevel (OI)(CI)L
+</code></pre>
+<p>を実行し、ついでにIEの履歴も削除します。これでIE自体を一度閉じて、もう一度起動。どうだ。……閲覧できました！</p>
+<p>ということで、解決。これはサイトの仕様とマシンの環境の両方が絡んだトラブルなので、嵌まると厄介ですねー。</p>"
         },
         {
-            "id": "releasenote",
-            "title": "ver.2.6.2",
-            "time": "2018/3/5",
-            "excerpt": "脱自前ライブラリ化",
-            "content": "<p>脱自前ライブラリ化。</p>"
+            "id": "win7_ie11_tab_move_form_border_erase",
+            "title": "Win7のIE11でdlの中にあるフォームをTabキーで移動すると表示がバグる",
+            "time": "2017/04/02",
+            "excerpt": "Windows7かつInternet Explorer11で、dl,dt,ddの子要素にフォームの部品があるフォームで、上から順番にTabでフォーカスを移動させると、ラジオボタンの直後のテキストボックスの表示がおかしくなる現象に遭遇",
+            "content": "<p>詳しくは<a href=\"https://github.com/arm-band/bugged_form-win7_ie11\">GitHub - arm-band/bugged_form-win7_ie11: テストフォーム（Win7 IE11バグ確認用）</a>を参照。<p><a href=\"https://arm-band.github.io/bugged_form-win7_ie11/\">当該フォーム</a>は</p>
+<ul>
+<li>Windows7</li>
+<li>Internet Explorer 11 (11.0.9600.18617)</li>
+</ul>
+<p>において、</p>
+<ul>
+<li>dl,dt,ddの子要素にフォームの部品があるフォーム</li>
+</ul>
+<p>で、上から順番にTabでフォーカスを移動させると、ラジオボタンの直後のテキストボックスの表示がおかしくなる現象の検証用のフォームです。</p>
+<p>なお、当現象はWin10のIE11や、他のブラウザでは発生しませんでした。</p>"
         },
         {
-            "id": "releasenote",
-            "title": "ver.2.6.1",
-            "time": "2018/3/2",
-            "excerpt": "トップページにスクロールスパイを追加。",
-            "content": "<p>トップページにスクロールスパイを追加。</p><ul><li><code>body</code>の<code>data-offset</code>を取得するため、結果として<code>commonVar.json</code>の値を使いまわしている</li><li>各ページの<code>body</code>タグにidを付与</li></ul>"
+            "id": "insane_selectbox",
+            "title": "セレクトボックスの値がおかしくなる",
+            "time": "2017/02/17",
+            "excerpt": "次の条件を満たすフォーム・操作で、セレクトボックスの値がおかしくなる。",
+            "content": "<h3>症状</h3>
+<p>下記条件を満たすフォーム・操作で、セレクトボックスの値がおかしくなる。</p>
+<h4>条件</h4>
+<ul>
+<li>Windows10のIE11を使用（2/17現在、IEバージョン：11.576.14393.0）</li>
+<li>フォームはセレクトボックスで項目を選択、セレクトボックスの内容はラジオボタンをチェックすると、それに対応した項目のみに絞り込みされる（ラジオボタンをチェックするたびに、JSでoption要素を全削除→ラジオボタンの項目に対応するもののみ再生成している）</li>
+</ul>
+<h4>操作</h4>
+<ol>
+<li>IEでラジオボタンで絞り込みを行い、セレクトボックスで項目を選択（<strong>上からn番目のAという項目</strong>とする）</li>
+<li>項目を選択した状態で、submitで次の画面に遷移</li>
+<li>IEの「戻る」で前の画面（セレクトボックスがある画面）に戻る</li>
+</ol>
+<p>すると、Windows10のIE11でのみ、ラジオボタンの絞り込みが解除され、かつ絞り込みなしの状態で<strong>上からn番目の項目</strong>が選択されている。</p>
+<p>他のブラウザでは、ラジオボタンの絞り込みは解除されるのは同じだが、選択されている項目は一致している（<strong>Aという項目が選ばれたまま</strong>）ので、今回のケースでは大きな問題にならない。</p>
+<p>また、Windows7のIE11（11.0.9600.18537）では発生せず、Windows10のIE11のみ現象を確認した。</p>
+<h2>対処（解決せず）</h2>
+<ul>
+<li><a href=\"http://shiranuik.hatenablog.jp/entry/2015/08/26/105539\">ブラウザの戻るボタンを押すと&lt;select&gt;の選択がおかしくなるのをjQueryで解決 &#8211; しぃぶろぐ。</a></li>
+</ul>
+<p>効果がなかった。</p>
+<p>ということで、謎現象な上に対処が難しいので保留。History APIを弄ればなんとかなりそうな気はしないでもないが…。</p>"
         },
         {
-            "id": "releasenote",
-            "title": "ver.2.6.0",
-            "time": "2018/3/1",
-            "excerpt": "共通のjsonからパラメータを使いまわせるようにしました",
-            "content": "<p><code>gulp-json-to-sass</code>を使って、共通の<code>json</code>から<code>ejs</code>,<code>js</code>, <code>scss</code>でパラメータを使いまわせるようにしました。</p>"
-        },
-        {
-            "id": "releasenote",
-            "title": "ver.2.5.8",
-            "time": "2018/3/1",
-            "excerpt": "パラメータ周りを整理",
-            "content": "<p><code>json</code>で管理するパラメータを拡張。</p><ul><li>各<code>ejs</code>ファイルで設定していた連想配列<code>param</code>を丸ごと<code>variables.json</code>に格納</li><li>呼び出しにファイル名をを使用するので<code>gulp-data</code>を追加。この処理でファイル名をキーにして<code>variables.json</code>の<code>param</code>の中から探す</li><li>ついでに<code>body</code>タグと<code>main</code>タグに出力するページ識別用クラスを決め打ちではなく、上記のファイル名を使った出力に変更</li></ul>"
-        },
-        {
-            "id": "releasenote",
-            "title": "ver.2.5.7",
-            "time": "2018/3/1",
-            "excerpt": "ファイル名・ディレクトリ名の整理",
-            "content": "<p>ファイル名・ディレクトリ名の整理。</p>"
-        },
-        {
-            "id": "releasenote",
-            "title": "ver.2.5.6",
-            "time": "2018/2/24",
-            "excerpt": "コピーライトの年数を決め打ちではなく、計算で変化するように変更",
-            "content": "<p>コピーライトの年数を決め打ちではなく、計算で変化するように変更。</p>"
-        },
-        {
-            "id": "releasenote",
-            "title": "ver.2.5.5",
-            "time": "2018/2/22",
-            "excerpt": "クラス付与の微調整、now loadingの背景色が決め打ちだったのを変数に修正",
-            "content": "<ul><li><code>index</code>の<code>main</code>にクラス付与、各ejsの<code>body</code>にクラス付与</li><li>now loadingの背景色を変数に</li></ul>"
-        },
-        {
-            "id": "releasenote",
-            "title": "ver.2.5.4",
-            "time": "2018/2/19",
-            "excerpt": "mainの左右paddingを削除",
-            "content": "<p>mainの左右paddingを削除。</p>"
-        },
-        {
-            "id": "releasenote",
-            "title": "ver.2.5.3",
-            "time": "2018/2/19",
-            "excerpt": "キービジュアル周りを整理",
-            "content": "<p>トップページ・各ページのキービジュアル周りを整理しました。</p>"
-        },
-        {
-            "id": "releasenote",
-            "title": "ver.2.5.2",
-            "time": "2018/2/13",
-            "excerpt": "faviconを追加。<code>head</code>タグ内にテーマカラーを出力するように追記",
-            "content": "<ul><li>faviconを追加。<code>gulptask.js</code>もfaviconを出力するように追記</li><li><code>head</code>タグ内にテーマカラーを出力するように追記。色は<code>var.json</code>で指定</li></ul>"
-        },
-        {
-            "id": "releasenote",
-            "title": "ver.2.5.1",
-            "time": "2018/2/10",
-            "excerpt": "トップページか否かの判定でナビゲーションバーのリンクを切り替えるように変更",
-            "content": "<p>トップページか否かの判定でナビゲーションバーのリンクを切り替えるように変更しました。</p>"
-        },
-        {
-            "id": "releasenote",
-            "title": "ver.2.5.0",
-            "time": "2018/2/10",
-            "excerpt": "新着情報を複数ページ生成するように修正しました",
-            "content": "<p>新着情報を<code>news.json</code>のパラメータで指定した件数ごとに複数ページ生成するように修正しました。</p>"
-        },
-        {
-            "id": "releasenote",
-            "title": "ver.2.4.4",
-            "time": "2018/2/1",
-            "excerpt": "ネタ更新:真言で<code>npm</code>が走るようにショートカットを追加",
-            "content": "<p>ネタ更新:真言で<code>npm</code>が走るようにショートカットを追加しました。</p>"
-        },
-        {
-            "id": "releasenote",
-            "title": "ver.2.4.3",
-            "time": "2018/1/31",
-            "excerpt": "スタイルガイドにjsファイルを読み込んでいなかったバグを修正",
-            "content": "<p>スタイルガイドにjsファイルを読み込んでいなかったバグを修正しました。</p>"
-        },
-        {
-            "id": "releasenote",
-            "title": "ver.2.4.2",
-            "time": "2018/1/31",
-            "excerpt": "新着情報周りの微調整",
-            "content": "<p>新着情報周りを微調整しました。</p><ul><li>トップページに出力する件数を5件(変数で変更可)に制限</li><li>上記の伴い、リンクボタンを追加</li><li><code>news.html</code>の表示を微調整</li></ul>"
-        },
-        {
-            "id": "releasenote",
-            "title": "ver.2.4.1",
-            "time": "2018/1/31",
-            "excerpt": "スタイルガイド用の設定を追加",
-            "content": "<p>スタイルガイド用の設定を追加しました。</p>"
-        },
-        {
-            "id": "releasenote",
-            "title": "ver.2.4.0",
-            "time": "2018/1/30",
-            "excerpt": "スタイルガイド生成機能を追加、ほか",
-            "content": "<ul><li>スタイルガイド生成機能を追加しました(<code>gulp-frontnote</code>使用(まだテスト版))。</li><li>jQuery.easingのnpmでの参照元を変更</li></ul>"
-        },
-        {
-            "id": "releasenote",
-            "title": "ver.2.3.1",
-            "time": "2018/1/30",
-            "excerpt": "jsonファイルをウォッチタスクに追加",
-            "content": "<ul><li>jsonファイルをウォッチタスクに追加しました</li><li><code>readme.md</code>を加筆修正しました</li></ul>"
-        },
-        {
-            "id": "releasenote",
-            "title": "ver.2.3.0",
-            "time": "2018/1/24",
-            "excerpt": "jsonによるパラメータ管理機能を追加",
-            "content": "<ul><li>jsonによるパラメータ管理機能を追加。<ul><li><code>/src/ejs/news/news.json</code>というjsonファイルで新着情報をトップページと更新履歴一覧ページに異なるhtmlで出力するサンプルを追加</li><li><code>/src/ejs/common/_var.ejs</code>で管理していた共通パラメータをjsonファイル(<code>/src/ejs/common/_var.json</code>)に変更</li></ul></li><li>ejsの変数の指定をチェーン方式に変更</li><li><code>.gitignore</code>追加</li></ul>"
-        },
-        {
-            "id": "releasenote",
-            "title": "ver.2.2.1",
-            "time": "2018/01/17",
-            "excerpt": "各種微調整",
-            "content": "<p>各種微調整。</p>"
-        },
-        {
-            "id": "releasenote",
-            "title": "ver.2.2.0",
-            "time": "2018/01/02",
-            "excerpt": "<code>gulp-autoprefixer</code>追加",
-            "content": "<p><code>gulp-autoprefixer</code>追加。</p>"
-        },
-        {
-            "id": "releasenote",
-            "title": "ver.2.1.0",
-            "time": "2018/01/02",
-            "excerpt": "<code>gulp-ruby-sass</code>から<code>gulp-sass</code>にsassコンパイラを変更。rubyから脱却",
-            "content": "<p><code>gulp-ruby-sass</code>から<code>gulp-sass</code>にsassコンパイラを変更。rubyから脱却。</p>"
-        },
-        {
-            "id": "releasenote",
-            "title": "ver.2.0.0",
-            "time": "2018/01/02",
-            "excerpt": "名前を付けました。",
-            "content": "<ul><li>名前を付けました</li><li>各種微調整</li></ul>"
-        },
-        {
-            "id": "releasenote",
-            "title": "ver.1.3.3",
-            "time": "2017/12/22",
-            "excerpt": "Bootstrapキャンセラーに追記",
-            "content": "<p>Bootstrapキャンセラーに追記。</p>"
-        },
-        {
-            "id": "releasenote",
-            "title": "ver.1.3.2",
-            "time": "2017/12/05",
-            "excerpt": "Bootstrapキャンセラーに追記",
-            "content": "<p>Bootstrapキャンセラーに追記。</p>"
-        },
-        {
-            "id": "releasenote",
-            "title": "ver.1.3.1",
-            "time": "2017/11/16",
-            "excerpt": "Bootstrapでいつも気になる指定をキャンセルするscssを追加",
-            "content": "<p>Bootstrapでいつも気になる指定をキャンセルするscssを追加。</p>"
-        },
-        {
-            "id": "releasenote",
-            "title": "ver.1.3.0",
-            "time": "2017/10/18",
-            "excerpt": "キービジュアルのmobileSafari対策が不十分だったのを修正",
-            "content": "<p>キービジュアルのmobileSafari対策が不十分だったのを修正。</p>"
-        },
-        {
-            "id": "releasenote",
-            "title": "ver.1.2.0",
-            "time": "2017/10/18",
-            "excerpt": "onw-libの中に丸ゴシックの記述を追加",
-            "content": "<p>onw-libの中に丸ゴシックの記述を追加。</p>"
-        },
-        {
-            "id": "releasenote",
-            "title": "ver.1.1.3",
-            "time": "2017/10/18",
-            "excerpt": "npmのプラグインのバージョン更新、HonokaをGithubからnpm経由に変更",
-            "content": "<ul><li>npmのプラグインのバージョン更新<ul><li>gulp-uglifyのコメントを残す方法が変化したらしい(参考: <a href=\"https://qiita.com/tawatawa/items/515d8a58299b6dcd18f6\">gulp-uglifyでコメントを残す方法が変わったの？ - Qiita</a>)ので、gulpfile.jsを微修正</li></ul></li><li>HonokaをGithubからnpm経由に変更</li></ul>"
-        },
-        {
-            "id": "releasenote",
-            "title": "ver.1.1.2",
-            "time": "2017/7/19",
-            "excerpt": "フッタの微修正（scssファイル、ejsファイル）",
-            "content": "<p>フッタの微修正（scssファイル、ejsファイル）。</p>"
-        },
-        {
-            "id": "releasenote",
-            "title": "ver1.1.1",
-            "time": "2017/7/6",
-            "excerpt": "いくつか修正",
-            "content": "<ul><li>Font CDNのAwesomeを4.7.0にバージョンアップ</li><li>gulpfile.jsの記述を変更<ul><li>BrowserSyncのreloadタスクを集約</li><li>open: &#39;external&#39;を追加</li></ul></li></ul>"
-        },
-        {
-            "id": "releasenote",
-            "title": "ver1.1.0",
-            "time": "2017/6/9",
-            "excerpt": "いくつかのパッケージをnpmで自動インストールするようにpackage.jsonを変更",
-            "content": "<p>後述パッケージをnpmで自動インストールするようにpackage.jsonを変更。</p><ul><li>Bootstrap + Honoka(3.3.7)</li><li>jQuery(3.2.1)</li><li>jQuery.easing(1.3)</li><li>自前のコード（ローカルパスで指定）</li></ul><p>これに合わせて、gulpfile.jsとscssの読み込み部分も変更。</p>"
-        },
-        {
-            "id": "releasenote",
-            "title": "ver1.0.0",
-            "time": "2017/2/22",
-            "excerpt": "初版公開",
-            "content": "<p>初版を公開しました。</p>"
+            "id": "darkside_scrollbar",
+            "title": "IEでスクロールバーの裏側までページが描画される",
+            "time": "2016/12/01",
+            "excerpt": "タイトルの通り、IEだけなぜか右端の縦スクロールバーの裏側までページが表示され、全体的に右に寄っているような表示になる現象に遭遇しました。ちなみに、このときのスクロールバーは半透明で、ページからカーソルを離して少し放置するとスクロールバーが消えます（カーソルを乗せ直すと表示される）。",
+            "content": "<p>タイトルの通り、IEだけなぜか右端の縦スクロールバーの裏側までページが表示され、全体的に右に寄っているような表示になる現象に遭遇しました。ちなみに、このときのスクロールバーは半透明で、ページからカーソルを離して少し放置するとスクロールバーが消えます（カーソルを乗せ直すと表示される）。</p>
+<p>どうも不要な場合はスクロールバーを消して、その分幅いっぱいページを表示しているようなのですが…右下や右上にページトップに戻るボタンを置いているサイトの場合、右端に近い場所だとスクロールバーと重なって使いづらいことに…。</p>
+<pre><code>
+@-ms-viewport { //IEでスクロールバーの背後までページが描画されてしまうのを防ぐ
+    width: auto;
+    initial-scale: 1;
+}
+</code></pre>
+<p>自分のテストサイトでは上記を追加してIEの場合だけ制御を付けることにしました。</p>
+<p>…まったく、IEはいつまで経っても余計な事ばかりする…。</p>
+<h4>参考</h4>
+<ul>
+<li><a href=\"http://okwave.jp/qa/q9022635.html\">IEブラウザの右スクロール部分 &#8211; ブラウザ | 【OKWAVE】</a></li>
+</ul>
+<p>これはブラウザに設定する場合の手順ですが、サイトのcssに書いても同様の効果が得られますね。</p>"
         }
     ],
     "pagination": 5
