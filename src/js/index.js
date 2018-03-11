@@ -50,9 +50,9 @@ function pageTop() {
         //スクロール距離が400pxより大きければページトップへ戻るボタンを表示
 		var currentPos = $(this).scrollTop();
 		if (currentPos > 400) {
-			returnPageTop.fadeIn();
+			returnPageTop.addClass("active");
 		} else {
-			returnPageTop.fadeOut();
+			returnPageTop.removeClass("active");
 		}
 	});
 

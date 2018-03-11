@@ -1,7 +1,8 @@
 {
-    "color": "#eee",
-    "bg-color": "#1EBBEE",
-    "main-color": "#3153F1",
+    "color": "#333",
+    "bg-color": "#CDEEFF",
+    "main-color": "#1EBBEE",
+    "main-color2": "#3153F1",
     "accent-color": "#FF8E17",
     "link-color": "#FFBB17",
     "navbar-height": "80px",
