@@ -4,7 +4,7 @@
 
 This website show that's Internet Explorer is enfant terrible.
 
-このサイトはIEが恐るべき存在であることを示しています。
+このサイト([IE△\(さんかっけー\)](https://arm-band.github.io/ieeenande/))はIEが恐るべき存在であることを示しています。
 
 ## Abstract
 
