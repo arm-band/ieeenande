@@ -21,3 +21,7 @@ IEはこのページを表示できますか？すごいね！
 IEは今までもWebデザイナーやプログラマー、フロントエンドエンジニアを泣かせてきました。そして、それは今もなお続いています。
 
 そこで、今までに遭遇したIEのトラブルをまとめてみることにしました。
+
+---
+
+Powered by [Kiribi Ususama Ver.2.6.7](https://github.com/arm-band/kiribi_ususama)

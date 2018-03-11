@@ -17,14 +17,8 @@ $(function() {
 //    }).fail(function(xhr, status, error) {
 //	});
 
-    if($("#indexMain").length) { //トップページの場合のみ動作
-        $(".indexEyecatch").Geometryangle({
-            mesh: {background:'rgba(30, 187, 238, 1)'},
-            lights: [{'ambient':'rgba(24, 184, 230, 1)', 'diffuse':'rgba(49, 83, 241, 1)',autopilot:true}],
-            line: {fill:'rgba(30, 187, 238, 1)',draw:true},
-            vertex: {radius:0, fill:'rgba(30, 187, 238, 1)', draw:false}
-        });
-    }
+    //geometryangle
+    geometryangle();
 
     //鬚を生やす
     Barba.Pjax.start();
@@ -103,6 +97,16 @@ function navPathReplace() {
             $(this).attr("href", path + "index.html?anchor=" + href);
         });
     }
+}
+
+//geometryangle
+function geometryangle() {
+    $(".eyecatch").Geometryangle({
+        mesh: {background:'rgba(30, 187, 238, 1)'},
+        lights: [{'ambient':'rgba(24, 184, 230, 1)', 'diffuse':'rgba(49, 83, 241, 1)',autopilot:true}],
+        line: {fill:'rgba(30, 187, 238, 1)',draw:true},
+        vertex: {radius:0, fill:'rgba(30, 187, 238, 1)', draw:false}
+    });
 }
 
 //Barba
@@ -197,6 +201,8 @@ var ShutterAnimation = Barba.BaseTransition.extend({
 
     //トップページか判定し、navbarMenuのリンクを書き換え(DOMクリアのdone走った後に実行)
     navPathReplace();
+    //geometryangle
+    geometryangle();
   }
 
 });
