@@ -22,6 +22,8 @@ IEは今までもWebデザイナーやプログラマー、フロントエンド
 
 そこで、今までに遭遇したIEのトラブルをまとめてみることにしました。
 
+IEさんマジ卍。
+
 ---
 
 Powered by [Kiribi Ususama Ver.2.6.7](https://github.com/arm-band/kiribi_ususama)

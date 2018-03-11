@@ -3,7 +3,8 @@
 .footer {
 	clear: both;
 	padding: 5px 5px 10px 5px;
-	background-color: $main-color;
+	background: rgba($inverse-color,1);
+    background: linear-gradient(90deg, rgba($inverse-color,1) 0%, rgba($main-color,1) 25%, rgba($main-color2,1) 100%);
 	color: $inverse-color;
     .copyRight {
         display: block;
