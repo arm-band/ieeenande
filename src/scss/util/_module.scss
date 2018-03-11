@@ -67,16 +67,13 @@
     justify-content: center;
     align-items: center;
     .container-fluid {
-        box-sizing: border-box; //IEバグフィックス
-        max-width: 100%; //IEバグフィックス
+        margin: 0 auto;
     }
 }
 //キービジュアルの見出しのタイポグラフィ
 @mixin eyecatchTypo($fontSize) {
     color: $link-color;
     z-index: 3;
-    font: {
-        size: $fontSize;
-        family: 'Dancing Script', cursive; /* googleフォント */
-    }
+    font-size: $fontSize;
+    @include jugosmin();
 }

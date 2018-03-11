@@ -39,9 +39,3 @@ body {
     line-height: $line-height;
     letter-spacing: $letter-spacing;
  }
-
-//IEでスクロールバーの背後までページが描画されてしまうのを防ぐ
-@-ms-viewport {
-    width: auto;
-    initial-scale: 1;
-}

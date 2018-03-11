@@ -6,6 +6,8 @@
 //                                                *
 // ============================================= */
 .navbar-default {
+    background-color: $bg-color;
+    border-bottom: 1px solid $main-color;
     .navbar-toggle {
         //共通
         border-color: transparent;
@@ -29,8 +31,16 @@
     }
     &-nav {
         margin: 0 15px 0 0;
+        & > li {
+            a {
+                &, &:link, &:visited {
+                    color: $accent-color;
+                }
+            }
+        }
     }
     & > .container .navbar-brand, & > .container-fluid .navbar-brand {
         margin-left: 0;
+        color: $accent-color;
     }
 }
