@@ -93,7 +93,7 @@ gulp.task("sass", () => {
         }))
 		.pipe(sass({outputStyle: "compressed"}).on("error", sass.logError))
         .pipe(autoprefixer({
-            browsers: ['last 2 version', 'iOS >= 8.1', 'Android >= 4.4'],
+            browsers: ['last 2 version', 'not ie <= 11', 'iOS >= 8.1', 'Android >= 4.4'],
             cascade: false
         }))
 		.pipe(gulp.dest(dir.dist.css));
