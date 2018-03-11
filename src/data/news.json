@@ -63,7 +63,7 @@ font-family: \"hogeFont\";
             "id": "flexbox_align_right",
             "title": "IE11でのflexboxのバグ",
             "time": "2017/10/25",
-            "thumbnail": "",
+            "thumbnail": "ie_fog.jpg",
             "excerpt": "display: flex; justify-content:center; align-items:center;とすると2つ目のサイトのように右寄せになってしまってツラい……という話。",
             "content": "<ul>
 <li><a href=\"https://qiita.com/sawadays0118/items/bd0731878e9eb49c03f5\">IE11のバグまとめ &#8211; Qiita</a></li>
@@ -76,7 +76,7 @@ font-family: \"hogeFont\";
             "id": "interchangeable_mode_cant_mapping",
             "title": "「Google Maps JavaScript APIでサポートされていないブラウザを使用しています」というメッセージが表示される",
             "time": "2017/10/24",
-            "thumbnail": "",
+            "thumbnail": "ie_fog.jpg",
             "excerpt": "とあるサイトで、「Google Maps JavaScript APIでサポートされていないブラウザを使用しています。ブラウザの変更をご検討ください。」というメッセージが画面上部に表示され、Googlemapが開かないという症状に遭遇しました。Windowsマシンで、IE11とのこと。",
             "content": "<img src=\"../img/googlemapjsapi_error-20171023.jpg\" alt=\"Google Maps JavaScript APIでサポートされていないブラウザを使用しています。ブラウザの変更をご検討ください。\" class=\"img-responsive\">
 <p>とあるサイトで、</p>
@@ -100,7 +100,7 @@ font-family: \"hogeFont\";
             "id": "win81_ie11_gyao_cant_play_movie",
             "title": "Windows8.1のIE11でGyaoの動画が視聴できない",
             "time": "2017/09/09",
-            "thumbnail": "",
+            "thumbnail": "ie_fog.jpg",
             "excerpt": "Windows8.1のIE11でGyaoの動画が視聴できない、というトラブルに遭遇",
             "content": "<p>Windows8.1のIE11でGyaoの動画が視聴できない、というトラブルに遭遇。</p>
 <ul>
@@ -129,7 +129,7 @@ font-family: \"hogeFont\";
             "id": "win7_ie11_tab_move_form_border_erase",
             "title": "Win7のIE11でdlの中にあるフォームをTabキーで移動すると表示がバグる",
             "time": "2017/04/02",
-            "thumbnail": "",
+            "thumbnail": "ie_shot.jpg",
             "excerpt": "Windows7かつInternet Explorer11で、dl,dt,ddの子要素にフォームの部品があるフォームで、上から順番にTabでフォーカスを移動させると、ラジオボタンの直後のテキストボックスの表示がおかしくなる現象に遭遇",
             "content": "<p>詳しくは<a href=\"https://github.com/arm-band/bugged_form-win7_ie11\">GitHub - arm-band/bugged_form-win7_ie11: テストフォーム（Win7 IE11バグ確認用）</a>を参照。<p><a href=\"https://arm-band.github.io/bugged_form-win7_ie11/\">当該フォーム</a>は</p>
 <ul>
@@ -147,7 +147,7 @@ font-family: \"hogeFont\";
             "id": "insane_selectbox",
             "title": "セレクトボックスの値がおかしくなる",
             "time": "2017/02/17",
-            "thumbnail": "",
+            "thumbnail": "ie_shot.jpg",
             "excerpt": "次の条件を満たすフォーム・操作で、セレクトボックスの値がおかしくなる。",
             "content": "<h3>症状</h3>
 <p>下記条件を満たすフォーム・操作で、セレクトボックスの値がおかしくなる。</p>
@@ -176,7 +176,7 @@ font-family: \"hogeFont\";
             "id": "darkside_scrollbar",
             "title": "IEでスクロールバーの裏側までページが描画される",
             "time": "2016/12/01",
-            "thumbnail": "",
+            "thumbnail": "ie_fog.jpg",
             "excerpt": "タイトルの通り、IEだけなぜか右端の縦スクロールバーの裏側までページが表示され、全体的に右に寄っているような表示になる現象に遭遇しました。ちなみに、このときのスクロールバーは半透明で、ページからカーソルを離して少し放置するとスクロールバーが消えます（カーソルを乗せ直すと表示される）。",
             "content": "<p>タイトルの通り、IEだけなぜか右端の縦スクロールバーの裏側までページが表示され、全体的に右に寄っているような表示になる現象に遭遇しました。ちなみに、このときのスクロールバーは半透明で、ページからカーソルを離して少し放置するとスクロールバーが消えます（カーソルを乗せ直すと表示される）。</p>
 <p>どうも不要な場合はスクロールバーを消して、その分幅いっぱいページを表示しているようなのですが…右下や右上にページトップに戻るボタンを置いているサイトの場合、右端に近い場所だとスクロールバーと重なって使いづらいことに…。</p>
