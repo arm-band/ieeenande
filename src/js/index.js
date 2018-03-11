@@ -17,6 +17,15 @@ $(function() {
 //    }).fail(function(xhr, status, error) {
 //	});
 
+    if($("#indexMain").length) { //トップページの場合のみ動作
+        $(".indexEyecatch").Geometryangle({
+            mesh: {background:'rgba(30, 187, 238, 1)'},
+            lights: [{'ambient':'rgba(24, 184, 230, 1)', 'diffuse':'rgba(49, 83, 241, 1)',autopilot:true}],
+            line: {fill:'rgba(30, 187, 238, 1)',draw:true},
+            vertex: {radius:0, fill:'rgba(30, 187, 238, 1)', draw:false}
+        });
+    }
+
     //鬚を生やす
     Barba.Pjax.start();
     Barba.Prefetch.init();
