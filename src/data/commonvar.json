@@ -1,5 +1,6 @@
 {
     "color": "#333",
+    "inverse-color": "#fff",
     "bg-color": "#CDEEFF",
     "main-color": "#1EBBEE",
     "main-color2": "#3153F1",
