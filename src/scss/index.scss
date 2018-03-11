@@ -54,9 +54,21 @@
 //                                                *
 // ============================================= */
 .news {
+    &_article {
+        .panel {
+            &-body {
+                padding: 0;
+            }
+        }
+    }
     &_contents {
+        padding: 2.5rem 1.5rem 1.5rem;
         ul, ol {
             padding-left: 1.5rem;
         }
+    }
+    & .news_createtime {
+        display: block;
+        text-align: right;
     }
 }

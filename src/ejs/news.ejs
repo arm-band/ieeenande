@@ -30,7 +30,7 @@ var newsBlock = newsBlock;
             <div class="row">
                 <div class="col-xs-12">
                     <div class="page-header">
-                        <h2>What's news? <small>news</small></h2>
+                        <h2>記事一覧<small>Articles</small></h2>
                     </div>
 <%- include("news/_pagination", { counter, pageLength, name, variables, id }) %>
                 </div>
@@ -45,6 +45,9 @@ var newsBlock = newsBlock;
                         		<h3 class="news_header"><%= newsBlock[i].title %></h3>
                         	</div>
                         	<div class="panel-body">
+                                <div class="news_thumbnail">
+                        	        <img src="../img/<%- newsBlock[i].thumbnail %>" class="img-responsive">
+                                </div>
                                 <div class="news_contents">
                         	        <%- newsBlock[i].content %>
                                 </div>
