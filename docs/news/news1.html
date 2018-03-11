@@ -1,0 +1,250 @@
+
+
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no,address=no,email=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>記事一覧 | IE△(さんかっけー)</title>
+	<meta name="description" content="IEさんの素晴らしい(そして吐き気を催すほどのダメっ子ぶりの)功績の数々です。">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon/favicon.ico">
+    <link rel="icon" type="image/png" href="../favicon/favicon.png">
+
+    <!-- theme color -->
+    <meta name="theme-color" content="#1EBBEE">
+
+	<!-- css -->
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link href="../css/index.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css" rel="stylesheet">
+</head>
+<body class="newsPage" id="newsPage">
+
+<div id="wrapper">
+<div id="barba-wrapper">
+<div class="barba-container">
+<!-- header -->
+<header class="header" id="navbar">
+    <nav class="navbar navbar-default navbar-fixed-top">
+    	<div class="container-fluid">
+    		<div class="navbar-header">
+    			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarMenu">
+    				<span class="sr-only">トグルナビ</span>
+    				<span class="icon-bar"></span>
+    				<span class="icon-bar"></span>
+    				<span class="icon-bar"></span>
+    				<!--
+    				<svg width="44" height="44" viewBox="0 0 44 44">
+                    	<defs>
+                    		<clipPath id="cp1" clipUnits="userSpaceOnUse">
+                    			<rect x="-11" width="44" height="44" transform="skewX(30)"/>
+                    		</clipPath>
+                    		<clipPath id="cp2" clipUnits="userSpaceOnUse">
+                    			<rect x="-11" width="44" height="44" transform="rotate(-30,0,0)skewY(30)"/>
+                    		</clipPath>
+                    	</defs>
+                    	<g clip-path="url(#cp1)">
+                    		<g clip-path="url(#cp2)">
+                    			<rect x="11" width="44" height="44" transform="skewX(-30)" fill=""/>
+                    		</g>
+                    	</g>
+                    </svg>
+    				-->
+    			</button>
+    			<h1 class="navbar_head"><a class="navbar-brand" href="#wrapper">IE△(さんかっけー)</a></h1>
+    		</div>
+    		
+    		<div class="collapse navbar-collapse navbar-right" id="navbarMenu">
+    			<ul class="nav navbar-nav">
+    				<li><a href="#about">概要</a></li>
+    				<li><a href="#news">記事一覧</a></li>
+    			</ul>
+    		</div>
+    	</div>
+    </nav>
+</header>
+<!-- /header -->
+
+    <section class="eyecatch commonEyecatch">
+        <div class="container-fluid">
+            <h2 class="eyecatch_header">記事一覧</h2>
+        </div>
+    </section>
+
+    <!-- main -->
+    <main class="main news" id="newsMain">
+<ol class="breadcrumb">
+	<li><a href="../"><i class="fa fa-fw fa-home" aria-hidden="true"></i>ホーム</a></li>
+	<li class="active">記事一覧</li>
+</ol>
+        <section class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="page-header">
+                        <h2>記事一覧<small>Articles</small></h2>
+                    </div>
+        <section class="container-fluid">
+            <nav>
+            	<ul class="pagination">
+
+            		<li class="active"><a href="./news1.html">1</a></li>
+
+            		<li><a href="./news2.html">2</a></li>
+
+            		<li>
+            			<a href="./news2.html" aria-label="次のページへ">
+            				<span aria-hidden="true">»</span>
+            			</a>
+            		</li>
+
+            	</ul>
+            </nav>
+        </section>
+                </div>
+                <div class="col-xs-12">
+
+                    <article class="news_article" id="break_a_promise-20180125">
+                        <div class="panel panel-default">
+                        	<div class="panel-heading">
+                        		<h3 class="news_header">Promiseを使った処理をIE11で流そうとしたら怒られた</h3>
+                        	</div>
+                        	<div class="panel-body">
+                                <div class="news_thumbnail">
+                        	        <img src="../img/ie_dont_keep_promise-20180127.jpg" class="img-responsive">
+                                </div>
+                                <div class="news_contents">
+                        	        <p><a href="http://barbajs.org/index.html">Barba.js</a>を使ったデモを作って、IEで動作確認したら……動かない。</p><p>エラーメッセージは以下の通り。</p><blockquote><p>Possible Unhandled Promise Rejection: TypeError: 未定義または NULL 参照のプロパティ &#8216;isWebKit&#8217; は取得できません</p></blockquote><p><q>Unhandled Promise</q>というところが引っかかりますね。「IEさんもしかしてPromise使えないとか？」と思って検索。</p><ul><li><a href="http://blog.malor.net/entry/react-ie11-error">Reactアプリを IE11 で表示すると 「オブジェクトは &apos;startsWith&apos; プロパティまたはメソッドをサポートしていません。」 が発生する &#8211; ＊いしのなかにいる＊</a></li><li><a href="https://qiita.com/zERobYTezERo/items/ac458c4cf2a8f2f6c3dd">Promiseのpolyfill(IE11お前もか!) &#8211; Qiita</a></li><li><a href="https://qiita.com/nanocloudx/items/5e2e55a767fd4c37ac1b">IEでPromiseを利用する &#8211; Qiita</a></li></ul><p>案の定、ES6のPromiseは使えないと来ました。やっぱりか。「えーマジPromise使えないの！？」「Promise使えないのが許されるのはNetscapeまでだよねー」という感じです。</p><p>回避策としては次の通り。</p><ol><li>ブラウザ判定して逃げる(そもそもBarba.jsを動かさない)</li><li>Polyfill</li><li>Babel</li></ol><p>PolyfillとBabelは似たような感じですが、BabelだけがPolyfillではないですし、BabelはBabelで有名すぎるので気分的に別枠にしたいところ。</p><p>結局数種類のPolyfillを試してダメで、本家Barba.jsのSampleに上がっているサイトもIEだけはそれっぽいアニメーションでお茶を濁したり、全く違う動作をしていたりしていて「あ、これは根本的にダメくさい」と悟ったので諦めました。IEさんは平気で約束をすっぽかしたりするズボラなブラウザということがよく分かりました。</p>
+                                </div>
+                        	</div>
+                        	<div class="panel-footer">
+                        		<time class="news_createtime" datetime="2018-01-25">2018/01/25</time>
+                        	</div>
+                        </div>
+                    </article>
+
+                    <article class="news_article" id="openfont_cant_display-20180125">
+                        <div class="panel panel-default">
+                        	<div class="panel-heading">
+                        		<h3 class="news_header">Webフォントを指定するとIEで怒られる</h3>
+                        	</div>
+                        	<div class="panel-body">
+                                <div class="news_thumbnail">
+                        	        <img src="../img/ie_dont_use_webfont-20180127.jpg" class="img-responsive">
+                                </div>
+                                <div class="news_contents">
+                        	        <p>ライセンス的に問題ないWebフォントをサーバにアップロードし、cssで読み込むように指定しました。</p><pre><code>@font-face {    font-family: "hogeFont";    src: url("../hogefont/hogefont.otf") format("opentype");}font-family: "hogeFont";</code></pre><p>すると、IE(IE11)だけ指定したフォントで表示されません。試しにF12でコンソールを開いてみると、次のエラーメッセージが表示されていました。</p><blockquote><p>@font-face で OpenType の埋め込みアクセス許可チェックに失敗しました。アクセス許可は Installable である必要があります。</p></blockquote><p>見たことのないエラーだったので調べてみました。</p><ul><li><a href="http://css3.sophia-it.com/reference/Web%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88%E3%82%92%E6%8C%87%E5%AE%9A%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF%EF%BC%9F">Webフォントを指定するには？ &#8211; @font-faceの解説 &#8211; CSS3リファレンス</a></li></ul><p>Webフォント自体は対応しているようです。では、エラーメッセージで検索すると……</p><ul><li><a href="https://msdn.microsoft.com/ja-jp/library/hh180764(v=vs.85).aspx">F12 開発者ツール コンソール エラー メッセージ (Windows)</a></li><li><a href="https://teratail.com/questions/3614">HTML &#8211; WEB FONT の使用について(3614)｜teratail</a></li></ul><p>どうやらIEで使用できるように変更を加えるソフト(<a href="http://carnage-melon.tom7.org/embed/">Truetype embedding-enabler</a>)を使用して、ファイル自体に変更を加える必要があるようです。</p><p>しかし、Windows10では動かず……。互換モードで動かせば動くかもしれませんが、ちょっと試すのは怖いですね……。</p><p>IEはやはり手間取らせるのか……。</p>
+                                </div>
+                        	</div>
+                        	<div class="panel-footer">
+                        		<time class="news_createtime" datetime="2018-01-25">2018/01/25</time>
+                        	</div>
+                        </div>
+                    </article>
+
+                    <article class="news_article" id="flexbox_align_right-20171025">
+                        <div class="panel panel-default">
+                        	<div class="panel-heading">
+                        		<h3 class="news_header">IE11でのflexboxのバグ</h3>
+                        	</div>
+                        	<div class="panel-body">
+                                <div class="news_thumbnail">
+                        	        <img src="../img/ie_fog.jpg" class="img-responsive">
+                                </div>
+                                <div class="news_contents">
+                        	        <ul><li><a href="https://qiita.com/sawadays0118/items/bd0731878e9eb49c03f5">IE11のバグまとめ &#8211; Qiita</a></li><li><a href="http://var.blog.jp/archives/68883432.html">IE11 の flexbox の中央揃えが難しい</a></li></ul><p><code>display: flex; justify-content:center; align-items:center;</code>とすると2つ目のサイトのように右寄せになってしまってツラい……という話。</p><p>やりたくはないですが、<code>left: 50%; transform: translateX(-50%);</code>で乗り切るという力技に……。</p>
+                                </div>
+                        	</div>
+                        	<div class="panel-footer">
+                        		<time class="news_createtime" datetime="2017-10-25">2017/10/25</time>
+                        	</div>
+                        </div>
+                    </article>
+
+                    <article class="news_article" id="interchangeable_mode_cant_mapping-20171024">
+                        <div class="panel panel-default">
+                        	<div class="panel-heading">
+                        		<h3 class="news_header">「Google Maps JavaScript APIでサポートされていないブラウザを使用しています」というメッセージが表示される</h3>
+                        	</div>
+                        	<div class="panel-body">
+                                <div class="news_thumbnail">
+                        	        <img src="../img/ie_fog.jpg" class="img-responsive">
+                                </div>
+                                <div class="news_contents">
+                        	        <img src="../img/googlemapjsapi_error-20171023.jpg" alt="Google Maps JavaScript APIでサポートされていないブラウザを使用しています。ブラウザの変更をご検討ください。" class="img-responsive"><p>とあるサイトで、</p><blockquote><p>Google Maps JavaScript APIでサポートされていないブラウザを使用しています。ブラウザの変更をご検討ください。</p></blockquote><p>というメッセージが画面上部に表示され、Googlemapが開かないという症状に遭遇しました。Windowsマシンで、IE11とのこと。</p><p>「IE11ならば問題ないはず……」と訝しんで検索すると</p><ul><li><a href="https://developers.google.com/maps/documentation/javascript/browsersupport?hl=ja">対応ブラウザ  |  Google Maps JavaScript API  |  Google Developers</a></li></ul><blockquote><p>注: Internet Explorer の互換表示には対応していません。</p></blockquote><p>……これか！</p><p>確かに、該当するサイトは少し前のサイトなので<code>&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</code>を入れていないことを思い出しました。</p><p>試しにこれをGooglemapを表示しているページに入れたところ、冒頭のメッセージは表示されず、きちんとマップも表示されるようになりました。</p><p>一方、現象が発生したマシンの環境を調べてみると……案の定、互換表示設定を施してあり、該当サイトがIE7モードで表示されていました。なんでこんな設定に……。</p>
+                                </div>
+                        	</div>
+                        	<div class="panel-footer">
+                        		<time class="news_createtime" datetime="2017-10-24">2017/10/24</time>
+                        	</div>
+                        </div>
+                    </article>
+
+                    <article class="news_article" id="win81_ie11_gyao_cant_play_movie-20170909">
+                        <div class="panel panel-default">
+                        	<div class="panel-heading">
+                        		<h3 class="news_header">Windows8.1のIE11でGyaoの動画が視聴できない</h3>
+                        	</div>
+                        	<div class="panel-body">
+                                <div class="news_thumbnail">
+                        	        <img src="../img/ie_fog.jpg" class="img-responsive">
+                                </div>
+                                <div class="news_contents">
+                        	        <p>Windows8.1のIE11でGyaoの動画が視聴できない、というトラブルに遭遇。</p><ul><li>IE11のバージョンは最新（Windows Updateも確認したが、更新はなし）</li><li>アドオンの管理でFlash Player(ShockWave Player)、Microsoft Silverlightは有効になっている</li></ul><p>といった状態で、他のマシン（OS, IE, Flash, Silverlight、いずれのバージョンも同じ）では閲覧できる、という困った状態でした。</p><p>とりあえず「特定サイトが閲覧できない」ということなので、何かサイト側でエラー出てないか、F12でIE11の管理者ツールを起動、コンソールを見てみます。すると</p><blockquote><p>アクセスが拒否されました。</p></blockquote><p>というエラーメッセージが。出ているのは、<code>windwow.storage</code>にアクセスする部分。なるほど、サイトからマシン上のlolalStorageにアクセスしようとして権限（またはlocalStorageの保存ファイルが壊れてるなどの理由で）で拒否されている、と。これをどうにかできれば、改善できそうです。ということで「localStorage アクセスが拒否されました IE11 Windows8.1」といったキーワードで検索。</p><ul><li><a href="http://qiita.com/hida/items/5570e390781b6f118a4f">IE11でLocalStorageが使えない時の対処法 &#8211; Qiita</a></li></ul><p>ありました。ということで、コマンドプロンプトを管理者で実行、</p><pre><code>> icacls %userprofile%\AppData\LocalLow /t /setintegritylevel (OI)(CI)L</code></pre><p>を実行し、ついでにIEの履歴も削除します。これでIE自体を一度閉じて、もう一度起動。どうだ。……閲覧できました！</p><p>ということで、解決。これはサイトの仕様とマシンの環境の両方が絡んだトラブルなので、嵌まると厄介ですねー。</p>
+                                </div>
+                        	</div>
+                        	<div class="panel-footer">
+                        		<time class="news_createtime" datetime="2017-09-09">2017/09/09</time>
+                        	</div>
+                        </div>
+                    </article>
+
+        <section class="container-fluid">
+            <nav>
+            	<ul class="pagination">
+
+            		<li class="active"><a href="./news1.html">1</a></li>
+
+            		<li><a href="./news2.html">2</a></li>
+
+            		<li>
+            			<a href="./news2.html" aria-label="次のページへ">
+            				<span aria-hidden="true">»</span>
+            			</a>
+            		</li>
+
+            	</ul>
+            </nav>
+        </section>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- /main -->
+
+</div>
+</div>
+    <p class="returnPageTop"><i class="fa fa-fw fa-caret-up" aria-hidden="true"></i></p>
+    <!-- footer -->
+    <footer class="footer">
+        <small class="copyRight">Copyright &#169; 2018 アルム＝バンド All Right Reserved.</small>
+    </footer>
+    <!-- /footer -->
+
+</div>
+
+
+<div class="shutter shutter-a moved" id="shutter"></div>
+<!--<div class="shutter shutter-b"></div>-->
+
+<script src="../js/lib.min.js"></script>
+<script src="../js/app.min.js"></script>
+</body>
+</html>

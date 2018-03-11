@@ -1,0 +1,212 @@
+
+
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no,address=no,email=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>記事一覧 | IE△(さんかっけー)</title>
+	<meta name="description" content="IEさんの素晴らしい(そして吐き気を催すほどのダメっ子ぶりの)功績の数々です。">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon/favicon.ico">
+    <link rel="icon" type="image/png" href="../favicon/favicon.png">
+
+    <!-- theme color -->
+    <meta name="theme-color" content="#1EBBEE">
+
+	<!-- css -->
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link href="../css/index.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css" rel="stylesheet">
+</head>
+<body class="newsPage" id="newsPage">
+
+<div id="wrapper">
+<div id="barba-wrapper">
+<div class="barba-container">
+<!-- header -->
+<header class="header" id="navbar">
+    <nav class="navbar navbar-default navbar-fixed-top">
+    	<div class="container-fluid">
+    		<div class="navbar-header">
+    			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarMenu">
+    				<span class="sr-only">トグルナビ</span>
+    				<span class="icon-bar"></span>
+    				<span class="icon-bar"></span>
+    				<span class="icon-bar"></span>
+    				<!--
+    				<svg width="44" height="44" viewBox="0 0 44 44">
+                    	<defs>
+                    		<clipPath id="cp1" clipUnits="userSpaceOnUse">
+                    			<rect x="-11" width="44" height="44" transform="skewX(30)"/>
+                    		</clipPath>
+                    		<clipPath id="cp2" clipUnits="userSpaceOnUse">
+                    			<rect x="-11" width="44" height="44" transform="rotate(-30,0,0)skewY(30)"/>
+                    		</clipPath>
+                    	</defs>
+                    	<g clip-path="url(#cp1)">
+                    		<g clip-path="url(#cp2)">
+                    			<rect x="11" width="44" height="44" transform="skewX(-30)" fill=""/>
+                    		</g>
+                    	</g>
+                    </svg>
+    				-->
+    			</button>
+    			<h1 class="navbar_head"><a class="navbar-brand" href="#wrapper">IE△(さんかっけー)</a></h1>
+    		</div>
+    		
+    		<div class="collapse navbar-collapse navbar-right" id="navbarMenu">
+    			<ul class="nav navbar-nav">
+    				<li><a href="#about">概要</a></li>
+    				<li><a href="#news">記事一覧</a></li>
+    			</ul>
+    		</div>
+    	</div>
+    </nav>
+</header>
+<!-- /header -->
+
+    <section class="eyecatch commonEyecatch">
+        <div class="container-fluid">
+            <h2 class="eyecatch_header">記事一覧</h2>
+        </div>
+    </section>
+
+    <!-- main -->
+    <main class="main news" id="newsMain">
+<ol class="breadcrumb">
+	<li><a href="../"><i class="fa fa-fw fa-home" aria-hidden="true"></i>ホーム</a></li>
+	<li class="active">記事一覧</li>
+</ol>
+        <section class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="page-header">
+                        <h2>記事一覧<small>Articles</small></h2>
+                    </div>
+        <section class="container-fluid">
+            <nav>
+            	<ul class="pagination">
+
+            		<li>
+            			<a href="./news1.html" aria-label="前のページへ">
+            				<span aria-hidden="true">«</span>
+            			</a>
+            		</li>
+
+            		<li><a href="./news1.html">1</a></li>
+
+            		<li class="active"><a href="./news2.html">2</a></li>
+
+            	</ul>
+            </nav>
+        </section>
+                </div>
+                <div class="col-xs-12">
+
+                    <article class="news_article" id="win7_ie11_tab_move_form_border_erase-20170402">
+                        <div class="panel panel-default">
+                        	<div class="panel-heading">
+                        		<h3 class="news_header">Win7のIE11でdlの中にあるフォームをTabキーで移動すると表示がバグる</h3>
+                        	</div>
+                        	<div class="panel-body">
+                                <div class="news_thumbnail">
+                        	        <img src="../img/ie_shot.jpg" class="img-responsive">
+                                </div>
+                                <div class="news_contents">
+                        	        <p>詳しくは<a href="https://github.com/arm-band/bugged_form-win7_ie11">GitHub - arm-band/bugged_form-win7_ie11: テストフォーム（Win7 IE11バグ確認用）</a>を参照。<p><a href="https://arm-band.github.io/bugged_form-win7_ie11/">当該フォーム</a>は</p><ul><li>Windows7</li><li>Internet Explorer 11 (11.0.9600.18617)</li></ul><p>において、</p><ul><li>dl,dt,ddの子要素にフォームの部品があるフォーム</li></ul><p>で、上から順番にTabでフォーカスを移動させると、ラジオボタンの直後のテキストボックスの表示がおかしくなる現象の検証用のフォームです。</p><p>なお、当現象はWin10のIE11や、他のブラウザでは発生しませんでした。</p>
+                                </div>
+                        	</div>
+                        	<div class="panel-footer">
+                        		<time class="news_createtime" datetime="2017-04-02">2017/04/02</time>
+                        	</div>
+                        </div>
+                    </article>
+
+                    <article class="news_article" id="insane_selectbox-20170217">
+                        <div class="panel panel-default">
+                        	<div class="panel-heading">
+                        		<h3 class="news_header">セレクトボックスの値がおかしくなる</h3>
+                        	</div>
+                        	<div class="panel-body">
+                                <div class="news_thumbnail">
+                        	        <img src="../img/ie_shot.jpg" class="img-responsive">
+                                </div>
+                                <div class="news_contents">
+                        	        <h3>症状</h3><p>下記条件を満たすフォーム・操作で、セレクトボックスの値がおかしくなる。</p><h4>条件</h4><ul><li>Windows10のIE11を使用（2/17現在、IEバージョン：11.576.14393.0）</li><li>フォームはセレクトボックスで項目を選択、セレクトボックスの内容はラジオボタンをチェックすると、それに対応した項目のみに絞り込みされる（ラジオボタンをチェックするたびに、JSでoption要素を全削除→ラジオボタンの項目に対応するもののみ再生成している）</li></ul><h4>操作</h4><ol><li>IEでラジオボタンで絞り込みを行い、セレクトボックスで項目を選択（<strong>上からn番目のAという項目</strong>とする）</li><li>項目を選択した状態で、submitで次の画面に遷移</li><li>IEの「戻る」で前の画面（セレクトボックスがある画面）に戻る</li></ol><p>すると、Windows10のIE11でのみ、ラジオボタンの絞り込みが解除され、かつ絞り込みなしの状態で<strong>上からn番目の項目</strong>が選択されている。</p><p>他のブラウザでは、ラジオボタンの絞り込みは解除されるのは同じだが、選択されている項目は一致している（<strong>Aという項目が選ばれたまま</strong>）ので、今回のケースでは大きな問題にならない。</p><p>また、Windows7のIE11（11.0.9600.18537）では発生せず、Windows10のIE11のみ現象を確認した。</p><h2>対処（解決せず）</h2><ul><li><a href="http://shiranuik.hatenablog.jp/entry/2015/08/26/105539">ブラウザの戻るボタンを押すと&lt;select&gt;の選択がおかしくなるのをjQueryで解決 &#8211; しぃぶろぐ。</a></li></ul><p>効果がなかった。</p><p>ということで、謎現象な上に対処が難しいので保留。History APIを弄ればなんとかなりそうな気はしないでもないが…。</p>
+                                </div>
+                        	</div>
+                        	<div class="panel-footer">
+                        		<time class="news_createtime" datetime="2017-02-17">2017/02/17</time>
+                        	</div>
+                        </div>
+                    </article>
+
+                    <article class="news_article" id="darkside_scrollbar-20161201">
+                        <div class="panel panel-default">
+                        	<div class="panel-heading">
+                        		<h3 class="news_header">IEでスクロールバーの裏側までページが描画される</h3>
+                        	</div>
+                        	<div class="panel-body">
+                                <div class="news_thumbnail">
+                        	        <img src="../img/ie_fog.jpg" class="img-responsive">
+                                </div>
+                                <div class="news_contents">
+                        	        <p>タイトルの通り、IEだけなぜか右端の縦スクロールバーの裏側までページが表示され、全体的に右に寄っているような表示になる現象に遭遇しました。ちなみに、このときのスクロールバーは半透明で、ページからカーソルを離して少し放置するとスクロールバーが消えます（カーソルを乗せ直すと表示される）。</p><p>どうも不要な場合はスクロールバーを消して、その分幅いっぱいページを表示しているようなのですが…右下や右上にページトップに戻るボタンを置いているサイトの場合、右端に近い場所だとスクロールバーと重なって使いづらいことに…。</p><pre><code>@-ms-viewport {    width: auto;    initial-scale: 1;}</code></pre><p>自分のテストサイトでは上記を追加してIEの場合だけ制御を付けることにしました。</p><p>…まったく、IEはいつまで経っても余計な事ばかりする…。</p><h4>参考</h4><ul><li><a href="http://okwave.jp/qa/q9022635.html">IEブラウザの右スクロール部分 &#8211; ブラウザ | 【OKWAVE】</a></li></ul><p>これはブラウザに設定する場合の手順ですが、サイトのcssに書いても同様の効果が得られますね。</p>
+                                </div>
+                        	</div>
+                        	<div class="panel-footer">
+                        		<time class="news_createtime" datetime="2016-12-01">2016/12/01</time>
+                        	</div>
+                        </div>
+                    </article>
+
+        <section class="container-fluid">
+            <nav>
+            	<ul class="pagination">
+
+            		<li>
+            			<a href="./news1.html" aria-label="前のページへ">
+            				<span aria-hidden="true">«</span>
+            			</a>
+            		</li>
+
+            		<li><a href="./news1.html">1</a></li>
+
+            		<li class="active"><a href="./news2.html">2</a></li>
+
+            	</ul>
+            </nav>
+        </section>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- /main -->
+
+</div>
+</div>
+    <p class="returnPageTop"><i class="fa fa-fw fa-caret-up" aria-hidden="true"></i></p>
+    <!-- footer -->
+    <footer class="footer">
+        <small class="copyRight">Copyright &#169; 2018 アルム＝バンド All Right Reserved.</small>
+    </footer>
+    <!-- /footer -->
+
+</div>
+
+
+<div class="shutter shutter-a moved" id="shutter"></div>
+<!--<div class="shutter shutter-b"></div>-->
+
+<script src="../js/lib.min.js"></script>
+<script src="../js/app.min.js"></script>
+</body>
+</html>
