@@ -132,6 +132,40 @@
             border: 1px solid $main-color2;
         }
     }
+    blockquote, pre {
+        border: {
+            left: 0;
+            radius: 4px;
+        }
+        color: $inverse-color;
+        position: relative;
+        overflow: hidden;
+        &:before {
+            display: inline-block;
+            font: {
+                size: 5rem;
+                family: "FontAwesome";
+            }
+            color: $main-color;
+            position: absolute;
+            left: 0.4rem;
+            top: 0;
+            z-index: 0;
+            opacity: 0.4;
+        }
+    }
+    blockquote {
+        background-color: $main-color2;
+        &:before {
+            content: "\f10d";
+        }
+    }
+    pre {
+        background-color: darken($main-color2, 13%);
+        &:before {
+            content: "\f120";
+        }
+    }
 }
 
 // ============================================= *
