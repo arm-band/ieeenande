@@ -34,7 +34,16 @@
 //                                                *
 // ============================================= */
 .index {
-
+    .environment {
+        &_ie {
+            &:before {
+                content: "※";
+            }
+        }
+        strong {
+            letter-spacing: 1rem;
+        }
+    }
 }
 // ============================================== *
 //                                                *
@@ -56,8 +65,18 @@
 .news {
     &_article {
         .panel {
+            &-heading, &-footer {
+                background-color: $main-color;
+                color: $inverse-color;
+                border-color: $main-color2;
+            }
             &-body {
                 padding: 0;
+                .news_thumbnail {
+                    img {
+                        width: 100%;
+                    }
+                }
             }
         }
     }

@@ -14,6 +14,11 @@ $link-ha-color: lighten($link-color, 15%);
 //	@media (min-width: 768px) {
 //	}
 
+@font-face {
+    font-family: "hannariMin";
+    src: url("https://testsite.ewigleere.net/hannari_otf/Hannari.otf") format("opentype");
+}
+
 // ============================================= *
 //                                               *
 // 全体設定                                       *

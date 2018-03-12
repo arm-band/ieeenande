@@ -34,8 +34,5 @@
 //参考3: Android端末で明朝体フォントを表示させたい！ - ONZE http://on-ze.com/archives/6636
 //注2: font-weight: 500;はダメ！絶対！！
 @mixin mincho() {
-    font: {
-        family: "Yu Mincho", YuMincho, "Hiragino Mincho ProN", "Hiragino Mincho Pro", "HGP明朝B", Georgia, "Sawarabi Mincho", メイリオ, Meiryo, serif;
-        feature-settings : "pkna";
-    }
+    font-family: "hannariMin";
 }

@@ -5,10 +5,10 @@
 // モジュール                                      *
 //                                               *
 // ============================================= */
-//YuGothic用
-@mixin jugos() {
-    font-family: cross-platform-yu-gothic, sans-serif;
-}
+////YuGothic用
+//@mixin jugos() {
+//    font-family: cross-platform-yu-gothic, sans-serif;
+//}
 @mixin jugosmin() {
     font-family: Jugos, //Windows用
                  YuGothic, //OS X

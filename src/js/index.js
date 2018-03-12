@@ -129,7 +129,8 @@ Barba.Dispatcher.on("newPageReady", function(currentStatus, oldStatus, container
         "meta[property^='og']",
         "meta[name^='twitter']",
         "meta[itemprop]",
-        "link[rel='icon']"
+        "link[rel^=shortcut]",
+        "link[rel^=icon]"
     ].join(",");
     $("head").find(headTags).remove(); //タグを削除
     $newPageHead.find(headTags).appendTo("head"); //タグを追加
