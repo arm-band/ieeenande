@@ -22,9 +22,16 @@
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<link href="./css/index.css" rel="stylesheet">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css" rel="stylesheet">
+    <!-- twitter card -->
+	<meta name="twitter:card" content="photo" />
+	<meta name="twitter:site" content="@Bredtn_1et" />
+	<meta property="og:type" content="website" />
+	<meta name="og:title" content="ホーム" />
+	<meta name="og:site_name" content="IE△(さんかっけー)" />
+	<meta name="og:description" content="Internet Explorer。それは常に我々を苛み、苦しめ、悩みと頭痛の種であり続けた存在だった。驚くべきことに、この苦しみは過去のものではなく、2018年にもなってなお、未だに多くの人々を苦しめ続けているのです！" />
+	<meta name="og:image" content="https://arm-band.github.io/ieeenande/img/ie_dont_keep_promise-20180127.jpg" />
+	<meta name="og:url" content="https://arm-band.github.io/ieeenande/" />
+
 </head>
 <body data-spy="scroll" data-target="#navbarMenu" data-offset="80" class="indexPage" id="indexPage">
 
@@ -99,6 +106,24 @@
                 </article>
             </div>
         </section>
+        <section class="container-fluid niceBoat" id="niceBoat">
+            <div class="row">
+                <article class="col-xs-12">
+                    <div class="page-header">
+                        <h2>IEさんのカッケーところ<small>Nice boat IE</small></h2>
+                    </div>
+                    <p>IEさんのイカすところのほんの一部をこのサイトで再現しています。具体的には</p>
+                    <ul class="fa-ul">
+                        <li><i class="fa fa-li fa-internet-explorer" aria-hidden="true"></i>Pjax, 特に<a href="http://barbajs.org/">Barba.js</a>が動いてくれない</li>
+                        <li><i class="fa fa-li fa-internet-explorer" aria-hidden="true"></i>一部のOpenTypeフォントを読み込めない。読み込み可能にするには、ツールを使ってフォントのデータを改変する必要があるのだが、その<strong>ツールはWindows10では動作しない</strong></li>
+                        <li><i class="fa fa-li fa-internet-explorer" aria-hidden="true"></i>Flexboxの中で中央寄せのために<code>margin: 0 auto;</code>を使うと<strong>中央ではなく右に寄る</strong></li>
+                        <li><i class="fa fa-li fa-internet-explorer" aria-hidden="true"></i><strong>スクロールバーの裏側までページが描画</strong>され、その分右に寄っているような表示になってしまう。右端から出現するタイプのページトップへ戻るボタンが実装されていると押しづらい</li>
+                    </ul>
+                    <p>IEさんマジ卍。</p>
+                    <p class="btnWrapper"><a href="./about.html" class="btnLink"><span>詳細な概要</span></a></p>
+                </article>
+            </div>
+        </section>
         <section class="container-fluid" id="news">
             <div class="row">
                 <div class="col-sm-12 col-md-3">
@@ -153,6 +178,23 @@
 
                     </ul>
                 </div>
+            </div>
+        </section>
+        <section class="container-fluid environment">
+            <div class="row">
+                <article class="col-xs-12">
+                    <div class="page-header">
+                        <h2>動作環境<small>Operating Environment</small></h2>
+                    </div>
+                    <p>このサイトは下記のブラウザで動作を確認しています。</p>
+                    <h3>PC</h3>
+                    <ul class="fa-ul">
+                        <li><i class="fa fa-li fa-firefox" aria-hidden="true"></i>Firefox 58</li>
+                        <li><i class="fa fa-li fa-chrome" aria-hidden="true"></i>Chrome 64</li>
+                        <li><i class="fa fa-li fa-chrome" aria-hidden="true"></i>Vivaldi 1.14</li>
+                    </ul>
+                    <p class="environment_ie">くれぐれもIEでは閲覧しないでください。良いですか？<strong>絶対にIEでは閲覧しないでくださいね？</strong>IEでの動作は一切保障しません。</p>
+                </article>
             </div>
         </section>
     </main>
