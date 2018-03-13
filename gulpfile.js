@@ -36,6 +36,7 @@ var dir = {
     jquery    : './node_modules/jquery/dist',
     barba     : './node_modules/barba.js/dist',
     easing    : './node_modules/jquery.easing',
+    geometryangle: './node_modules/organism-react-geometryangle/dist',
     bootstrap : './node_modules/bootstrap-honoka/dist/js'
   },
   src: {
@@ -112,7 +113,7 @@ gulp.task("imagemin", () => {
 
 //js圧縮&結合&リネーム
 gulp.task("js.concat", () => {
-	return gulp.src([dir.assets.jquery + "/jquery.min.js", dir.assets.barba + "/barba.min.js", dir.assets.bootstrap + "/bootstrap.min.js", dir.assets.easing + "/jquery.easing.js", dir.src.js + "/geometryangle.min.js"])
+	return gulp.src([dir.assets.jquery + "/jquery.min.js", dir.assets.barba + "/barba.min.js", dir.assets.bootstrap + "/bootstrap.min.js", dir.assets.easing + "/jquery.easing.js", dir.assets.geometryangle + "/geometryangle.min.js"])
 		.pipe(plumber())
 		.pipe(concat("lib.js"))
 		.pipe(gulp.dest(dir.src.js + "/concat/")); //srcとdistを別ディレクトリにしないと、自動でタスクが走る度にconcatしたものも雪だるま式に追加されていく
