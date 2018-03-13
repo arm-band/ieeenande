@@ -2,7 +2,7 @@
 
 ## What's this site?
 
-This website show that's Internet Explorer is enfant terrible.
+This website shows that's Internet Explorer is enfant terrible.
 
 このサイト([IE△\(さんかっけー\)](https://arm-band.github.io/ieeenande/))はIEが恐るべき存在であることを示しています。
 
