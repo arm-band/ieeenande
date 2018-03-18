@@ -1,0 +1,143 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no,address=no,email=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>IEでスクロールバーの裏側までページが描画される | IE△(さんかっけー)</title>
+	<meta name="description" content="タイトルの通り、IEだけなぜか右端の縦スクロールバーの裏側までページが表示され、全体的に右に寄っているような表示になる現象に遭遇しました。ちなみに、このときのスクロールバーは半透明で、ページからカーソルを離して少し放置するとスクロールバーが消えます（カーソルを乗せ直すと表示される）。">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon/favicon.ico">
+    <link rel="icon" type="image/png" href="../favicon/favicon.png">
+
+    <!-- theme color -->
+    <meta name="theme-color" content="#1EBBEE">
+
+	<!-- css -->
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link href="../css/index.css" rel="stylesheet">
+
+    <!-- twitter card -->
+	<meta name="twitter:card" content="photo" />
+	<meta name="twitter:site" content="" />
+	<meta property="og:type" content="website" />
+	<meta name="og:title" content="IEでスクロールバーの裏側までページが描画される" />
+	<meta name="og:site_name" content="IE△(さんかっけー)" />
+	<meta name="og:description" content="タイトルの通り、IEだけなぜか右端の縦スクロールバーの裏側までページが表示され、全体的に右に寄っているような表示になる現象に遭遇しました。ちなみに、このときのスクロールバーは半透明で、ページからカーソルを離して少し放置するとスクロールバーが消えます（カーソルを乗せ直すと表示される）。" />
+	<meta name="og:image" content="../ie_fog.jpg" />
+	<meta name="og:url" content="" />
+
+</head>
+<body class="articlePage" id="articlePage">
+
+<div id="wrapper">
+<div id="barba-wrapper">
+<div class="barba-container">
+<!-- header -->
+<header class="header" id="navbar">
+    <nav class="navbar navbar-default navbar-fixed-top">
+    	<div class="container-fluid">
+    		<div class="navbar-header">
+    			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarMenu">
+    				<span class="sr-only">トグルナビ</span>
+    				<span class="icon-bar"></span>
+    				<span class="icon-bar"></span>
+    				<span class="icon-bar"></span>
+    				<!--
+    				<svg width="44" height="44" viewBox="0 0 44 44">
+                    	<defs>
+                    		<clipPath id="cp1" clipUnits="userSpaceOnUse">
+                    			<rect x="-11" width="44" height="44" transform="skewX(30)"/>
+                    		</clipPath>
+                    		<clipPath id="cp2" clipUnits="userSpaceOnUse">
+                    			<rect x="-11" width="44" height="44" transform="rotate(-30,0,0)skewY(30)"/>
+                    		</clipPath>
+                    	</defs>
+                    	<g clip-path="url(#cp1)">
+                    		<g clip-path="url(#cp2)">
+                    			<rect x="11" width="44" height="44" transform="skewX(-30)" fill=""/>
+                    		</g>
+                    	</g>
+                    </svg>
+    				-->
+    			</button>
+    			<h1 class="navbar_head"><a class="navbar-brand" href="#wrapper">IE△(さんかっけー)</a></h1>
+    		</div>
+    		
+    		<div class="collapse navbar-collapse navbar-right" id="navbarMenu">
+    			<ul class="nav navbar-nav">
+    				<li><a href="#about">概要</a></li>
+    				<li><a href="#news">記事一覧</a></li>
+    			</ul>
+    		</div>
+    	</div>
+    </nav>
+</header>
+<!-- /header -->
+
+    <section class="eyecatch commonEyecatch">
+        <div class="container-fluid">
+            <h2 class="eyecatch_header">記事</h2>
+        </div>
+    </section>
+
+    <!-- main -->
+    <main class="main article" id="articleMain">
+<ol class="breadcrumb">
+	<li><a href="../"><i class="fa fa-fw fa-home" aria-hidden="true"></i>ホーム</a></li>
+	<li class="active">記事</li>
+</ol>
+        <section class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+
+                    <article class="news_article" id="darkside_scrollbar-20161201">
+                        <div class="panel panel-default">
+                        	<div class="panel-heading">
+                        		<h2 class="news_header">IEでスクロールバーの裏側までページが描画される</h2>
+                        	</div>
+                        	<div class="panel-body">
+                                <div class="news_thumbnail">
+                        	        <img src="../img/ie_fog.jpg" class="img-responsive">
+                                </div>
+                                <div class="news_contents">
+                        	        <p>タイトルの通り、IEだけなぜか右端の縦スクロールバーの裏側までページが表示され、全体的に右に寄っているような表示になる現象に遭遇しました。ちなみに、このときのスクロールバーは半透明で、ページからカーソルを離して少し放置するとスクロールバーが消えます（カーソルを乗せ直すと表示される）。</p><p>どうも不要な場合はスクロールバーを消して、その分幅いっぱいページを表示しているようなのですが…右下や右上にページトップに戻るボタンを置いているサイトの場合、右端に近い場所だとスクロールバーと重なって使いづらいことに…。</p><pre><code>@-ms-viewport {    width: auto;    initial-scale: 1;}</code></pre><p>自分のテストサイトでは上記を追加してIEの場合だけ制御を付けることにしました。</p><p>…まったく、IEはいつまで経っても余計な事ばかりする…。</p><h4>参考</h4><ul><li><a href="http://okwave.jp/qa/q9022635.html">IEブラウザの右スクロール部分 &#8211; ブラウザ | 【OKWAVE】</a></li></ul><p>これはブラウザに設定する場合の手順ですが、サイトのcssに書いても同様の効果が得られますね。</p>
+                                </div>
+                        	</div>
+                        	<div class="panel-footer">
+                        		<time class="news_createtime" datetime="2016-12-01">2016/12/01</time>
+                        	</div>
+                        </div>
+                    </article>
+<p class="btnWrapper"><a href="../news/news1.html" class="btnLink"><span>記事一覧に戻る</span></a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- /main -->
+
+</div>
+</div>
+    <p class="returnPageTop"><i class="fa fa-fw fa-caret-up" aria-hidden="true"></i></p>
+    <!-- footer -->
+    <footer class="footer">
+        <small class="copyRight">Copyright &#169; 2018 アルム＝バンド All Right Reserved.</small>
+    </footer>
+    <!-- /footer -->
+
+</div>
+
+
+<div class="shutter shutter-a moved" id="shutter"></div>
+<!--<div class="shutter shutter-b"></div>-->
+
+<script src="../js/lib.min.js"></script>
+<script src="../js/app.min.js"></script>
+</body>
+</html>

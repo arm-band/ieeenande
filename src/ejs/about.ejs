@@ -5,10 +5,11 @@ id = filename.slice(filename.lastIndexOf("\\") + 1).replace(/\.ejs/g, ''); //PCå
 %>
 <%- include("util/_year", { variables, id }) %>
 <%- include("util/_pathdir", { variables, id }) %>
+<%- include("util/_headset", { variables, id, path }) %>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<%- include("partial/_head", { variables, id, commonVar }) %>
+<%- include("partial/_head", { variables, id, commonVar, metaTitle, metaDescription, metaOgpimage }) %>
 </head>
 <body class="<%= id %>Page" id="<%= id %>Page">
 

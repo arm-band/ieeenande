@@ -2,7 +2,10 @@
     "commons": {
         "sitename": "IE△(さんかっけー)",
         "year": "2018",
-        "author": "アルム＝バンド"
+        "author": "アルム＝バンド",
+        "twitteraccount": "Bredtn_1et",
+        "twitterimage": "https://arm-band.github.io/ieeenande/img/ie_triangle.jpg",
+        "twittersiteurl": "https://arm-band.github.io/ieeenande/"
     },
     "param": {
         "index": {
@@ -20,7 +23,8 @@
             "css": "index",
             "js": "app.min",
             "description": "このページについての説明です。IEさんへのアツいメッセージをここに記します。",
-            "hierarchy": 0
+            "hierarchy": 0,
+            "ogpimage": "https://arm-band.github.io/ieeenande/img/ie_triangle.jpg"
         },
         "news": {
             "title": "記事一覧",
@@ -28,7 +32,18 @@
             "css": "index",
             "js": "app.min",
             "description": "IEさんの素晴らしい(そして吐き気を催すほどのダメっ子ぶりの)功績の数々です。",
-            "hierarchy": 1
+            "hierarchy": 1,
+            "ogpimage": "https://arm-band.github.io/ieeenande/img/ie_triangle.jpg"
+        }
+        ,
+        "article": {
+            "title": "記事",
+            "entitle": "News",
+            "css": "index",
+            "js": "app.min",
+            "description": "IEさんの素晴らしい(そして吐き気を催すほどのダメっ子ぶりの)功績の数々です。",
+            "hierarchy": 1,
+            "ogpimage": "https://arm-band.github.io/ieeenande/img/ie_triangle.jpg"
         }
     }
 }

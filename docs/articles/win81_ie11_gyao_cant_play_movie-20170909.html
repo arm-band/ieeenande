@@ -1,0 +1,143 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no,address=no,email=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Windows8.1のIE11でGyaoの動画が視聴できない | IE△(さんかっけー)</title>
+	<meta name="description" content="Windows8.1のIE11でGyaoの動画が視聴できない、というトラブルに遭遇">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon/favicon.ico">
+    <link rel="icon" type="image/png" href="../favicon/favicon.png">
+
+    <!-- theme color -->
+    <meta name="theme-color" content="#1EBBEE">
+
+	<!-- css -->
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link href="../css/index.css" rel="stylesheet">
+
+    <!-- twitter card -->
+	<meta name="twitter:card" content="photo" />
+	<meta name="twitter:site" content="" />
+	<meta property="og:type" content="website" />
+	<meta name="og:title" content="Windows8.1のIE11でGyaoの動画が視聴できない" />
+	<meta name="og:site_name" content="IE△(さんかっけー)" />
+	<meta name="og:description" content="Windows8.1のIE11でGyaoの動画が視聴できない、というトラブルに遭遇" />
+	<meta name="og:image" content="../ie_fog.jpg" />
+	<meta name="og:url" content="" />
+
+</head>
+<body class="articlePage" id="articlePage">
+
+<div id="wrapper">
+<div id="barba-wrapper">
+<div class="barba-container">
+<!-- header -->
+<header class="header" id="navbar">
+    <nav class="navbar navbar-default navbar-fixed-top">
+    	<div class="container-fluid">
+    		<div class="navbar-header">
+    			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarMenu">
+    				<span class="sr-only">トグルナビ</span>
+    				<span class="icon-bar"></span>
+    				<span class="icon-bar"></span>
+    				<span class="icon-bar"></span>
+    				<!--
+    				<svg width="44" height="44" viewBox="0 0 44 44">
+                    	<defs>
+                    		<clipPath id="cp1" clipUnits="userSpaceOnUse">
+                    			<rect x="-11" width="44" height="44" transform="skewX(30)"/>
+                    		</clipPath>
+                    		<clipPath id="cp2" clipUnits="userSpaceOnUse">
+                    			<rect x="-11" width="44" height="44" transform="rotate(-30,0,0)skewY(30)"/>
+                    		</clipPath>
+                    	</defs>
+                    	<g clip-path="url(#cp1)">
+                    		<g clip-path="url(#cp2)">
+                    			<rect x="11" width="44" height="44" transform="skewX(-30)" fill=""/>
+                    		</g>
+                    	</g>
+                    </svg>
+    				-->
+    			</button>
+    			<h1 class="navbar_head"><a class="navbar-brand" href="#wrapper">IE△(さんかっけー)</a></h1>
+    		</div>
+    		
+    		<div class="collapse navbar-collapse navbar-right" id="navbarMenu">
+    			<ul class="nav navbar-nav">
+    				<li><a href="#about">概要</a></li>
+    				<li><a href="#news">記事一覧</a></li>
+    			</ul>
+    		</div>
+    	</div>
+    </nav>
+</header>
+<!-- /header -->
+
+    <section class="eyecatch commonEyecatch">
+        <div class="container-fluid">
+            <h2 class="eyecatch_header">記事</h2>
+        </div>
+    </section>
+
+    <!-- main -->
+    <main class="main article" id="articleMain">
+<ol class="breadcrumb">
+	<li><a href="../"><i class="fa fa-fw fa-home" aria-hidden="true"></i>ホーム</a></li>
+	<li class="active">記事</li>
+</ol>
+        <section class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+
+                    <article class="news_article" id="win81_ie11_gyao_cant_play_movie-20170909">
+                        <div class="panel panel-default">
+                        	<div class="panel-heading">
+                        		<h2 class="news_header">Windows8.1のIE11でGyaoの動画が視聴できない</h2>
+                        	</div>
+                        	<div class="panel-body">
+                                <div class="news_thumbnail">
+                        	        <img src="../img/ie_fog.jpg" class="img-responsive">
+                                </div>
+                                <div class="news_contents">
+                        	        <p>Windows8.1のIE11でGyaoの動画が視聴できない、というトラブルに遭遇。</p><ul><li>IE11のバージョンは最新（Windows Updateも確認したが、更新はなし）</li><li>アドオンの管理でFlash Player(ShockWave Player)、Microsoft Silverlightは有効になっている</li></ul><p>といった状態で、他のマシン（OS, IE, Flash, Silverlight、いずれのバージョンも同じ）では閲覧できる、という困った状態でした。</p><p>とりあえず「特定サイトが閲覧できない」ということなので、何かサイト側でエラー出てないか、F12でIE11の管理者ツールを起動、コンソールを見てみます。すると</p><blockquote><p>アクセスが拒否されました。</p></blockquote><p>というエラーメッセージが。出ているのは、<code>windwow.storage</code>にアクセスする部分。なるほど、サイトからマシン上のlolalStorageにアクセスしようとして権限（またはlocalStorageの保存ファイルが壊れてるなどの理由で）で拒否されている、と。これをどうにかできれば、改善できそうです。ということで「localStorage アクセスが拒否されました IE11 Windows8.1」といったキーワードで検索。</p><ul><li><a href="http://qiita.com/hida/items/5570e390781b6f118a4f">IE11でLocalStorageが使えない時の対処法 &#8211; Qiita</a></li></ul><p>ありました。ということで、コマンドプロンプトを管理者で実行、</p><pre><code>> icacls %userprofile%\AppData\LocalLow /t /setintegritylevel (OI)(CI)L</code></pre><p>を実行し、ついでにIEの履歴も削除します。これでIE自体を一度閉じて、もう一度起動。どうだ。……閲覧できました！</p><p>ということで、解決。これはサイトの仕様とマシンの環境の両方が絡んだトラブルなので、嵌まると厄介ですねー。</p>
+                                </div>
+                        	</div>
+                        	<div class="panel-footer">
+                        		<time class="news_createtime" datetime="2017-09-09">2017/09/09</time>
+                        	</div>
+                        </div>
+                    </article>
+<p class="btnWrapper"><a href="../news/news1.html" class="btnLink"><span>記事一覧に戻る</span></a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- /main -->
+
+</div>
+</div>
+    <p class="returnPageTop"><i class="fa fa-fw fa-caret-up" aria-hidden="true"></i></p>
+    <!-- footer -->
+    <footer class="footer">
+        <small class="copyRight">Copyright &#169; 2018 アルム＝バンド All Right Reserved.</small>
+    </footer>
+    <!-- /footer -->
+
+</div>
+
+
+<div class="shutter shutter-a moved" id="shutter"></div>
+<!--<div class="shutter shutter-b"></div>-->
+
+<script src="../js/lib.min.js"></script>
+<script src="../js/app.min.js"></script>
+</body>
+</html>

@@ -1,6 +1,4 @@
 <%
-var counter = pages; //gulpfile.jsのnews.ejsのカウンタ
-var pageLength = pageLength; //ページの最大数
 var name = name; //gulpfile.jsで指定されたファイル名
 var variables = variables;
 var commonVar = commonVar;
@@ -9,7 +7,7 @@ var newsBlock = newsBlock;
 %>
 <%- include("util/_year", { variables, id }) %>
 <%- include("util/_pathdir", { variables, id }) %>
-<%- include("util/_headset", { variables, id, path }) %>
+<%- include("util/_headset_article", { variables, id, path, newsBlock }) %>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -30,36 +28,29 @@ var newsBlock = newsBlock;
         <section class="container-fluid">
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="page-header">
-                        <h2>記事一覧<small>Articles</small></h2>
-                    </div>
-<%- include("news/_pagination", { counter, pageLength, name, variables, id }) %>
-                </div>
-                <div class="col-xs-12">
-<% for(var i in newsBlock) {
-    var datetime = newsBlock[i].time.replace(/\//g, "-");
-    var idTime = newsBlock[i].time.replace(/\//g, "");
+<%
+var datetime = newsBlock.time.replace(/\//g, "-");
+var idTime = newsBlock.time.replace(/\//g, "");
 %>
-                    <article class="news_article" id="<%= newsBlock[i].id %>-<%= idTime %>">
+                    <article class="news_article" id="<%= newsBlock.id %>-<%= idTime %>">
                         <div class="panel panel-default">
                         	<div class="panel-heading">
-                        		<a href="../articles/<%= newsBlock[i].id %>-<%= idTime %>.html"><h3 class="news_header"><%= newsBlock[i].title %></h3></a>
+                        		<h2 class="news_header"><%= newsBlock.title %></h2>
                         	</div>
                         	<div class="panel-body">
                                 <div class="news_thumbnail">
-                        	        <img src="../img/<%- newsBlock[i].thumbnail %>" class="img-responsive">
+                        	        <img src="../img/<%- newsBlock.thumbnail %>" class="img-responsive">
                                 </div>
                                 <div class="news_contents">
-                        	        <%- newsBlock[i].content %>
+                        	        <%- newsBlock.content %>
                                 </div>
                         	</div>
                         	<div class="panel-footer">
-                        		<time class="news_createtime" datetime="<%= datetime %>"><%= newsBlock[i].time %></time>
+                        		<time class="news_createtime" datetime="<%= datetime %>"><%= newsBlock.time %></time>
                         	</div>
                         </div>
                     </article>
-<% } %>
-<%- include("news/_pagination", { counter, pageLength, name, variables, id }) %>
+<p class="btnWrapper"><a href="../news/news1.html" class="btnLink"><span>記事一覧に戻る</span></a></p>
                 </div>
             </div>
         </section>

@@ -148,7 +148,7 @@ gulp.task("ejs", () => {
     var newsjson = getNews();
     var commonVar = getCommonVar();
     gulp.src(
-        [dir.src.ejs + "/**/*.ejs", "!" + dir.src.ejs + "/**/_*.ejs", "!" + dir.src.ejs + "/news.ejs"] //_*.ejs(パーツ)とnews.ejs(別タスクで定義)はhtmlにしない
+        [dir.src.ejs + "/**/*.ejs", "!" + dir.src.ejs + "/**/_*.ejs", "!" + dir.src.ejs + "/news.ejs", "!" + dir.src.ejs + "/article.ejs"] //_*.ejs(パーツ)とnews.ejs(別タスクで定義)はhtmlにしない
     )
     .pipe(plumber())
     .pipe(data(function(file) {
@@ -201,6 +201,28 @@ gulp.task("news.ejs", function() {
     }
 });
 
+//新着情報専用のejaタスク
+gulp.task("article.ejs", function() {
+    var name = "news"; //テンプレート・生成するファイル名
+    var variables = getVariables();
+    var newsjson = getNews();
+    var commonVar = getCommonVar();
+    var tempFile = dir.src.ejs + "/article.ejs"; //テンプレート
+
+    for(var i = 0; i < newsjson.news.length; i++) { //新着情報の件数
+        var newsBlock = newsjson.news[i];
+        var idTime = newsBlock.time.replace(/\//g, "");
+        gulp.src(tempFile)
+        .pipe(plumber())
+        .pipe(data(function(file) {
+            return { "filename": file.path }
+        }))
+        .pipe(ejs({ variables, newsBlock, commonVar, name }))
+        .pipe(rename(newsBlock.id + "-" + idTime + ".html"))
+        .pipe(gulp.dest(dir.dist.html + "/articles"));
+    }
+});
+
 //favicon
 gulp.task("favicon", () => {
     gulp.src(
@@ -246,13 +268,13 @@ gulp.task("styleguide", () => {
 });
 
 //gulpのデフォルトタスクで諸々を動かす
-gulp.task("default", ["sass", "sass-watch", "ejs", "news.ejs", "js", "imagemin", "favicon", "connect-sync", "styleguide"], () => {
-	gulp.watch(dir.src.ejs + "/**/*.ejs", ["ejs", "news.ejs"]);
+gulp.task("default", ["sass", "sass-watch", "ejs", "news.ejs", "article.ejs", "js", "imagemin", "favicon", "connect-sync", "styleguide"], () => {
+	gulp.watch(dir.src.ejs + "/**/*.ejs", ["ejs", "news.ejs", "article.ejs"]);
 //    gulp.watch(dir.dist.html + "/**/*.php",function () { browserSync.reload(); }); //php使うときはこっち
     gulp.watch(dir.src.scss + "/**/*.scss", ["sass", "styleguide"]);
 	gulp.watch(dir.src.img + "/**/*.+(jpg|jpeg|png|gif|svg)", ["imagemin"]);
 	gulp.watch(dir.src.js + "/**/*.js", ["js"]);
-    gulp.watch(dir.data.dir + "/**/*.json", ["ejs", "news.ejs", "sass", "js", "styleguide"]);
+    gulp.watch(dir.data.dir + "/**/*.json", ["ejs", "news.ejs", "article.ejs", "sass", "js", "styleguide"]);
 
     gulp.watch([dir.dist.html + "/**/*.+(html|php)", dir.dist.css + "/**/*.css", dir.dist.img + "/**/*.+(jpg|jpeg|png|gif|svg)", dir.dist.js + "/**/*.js"]).on("change", () => { browserSync.reload(); });
 });
