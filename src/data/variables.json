@@ -15,7 +15,8 @@
             "js": "app.min",
             "description": "Internet Explorer。それは常に我々を苛み、苦しめ、悩みと頭痛の種であり続けた存在だった。驚くべきことに、この苦しみは過去のものではなく、2018年にもなってなお、未だに多くの人々を苦しめ続けているのです！",
             "hierarchy": 0,
-            "newscount": 5
+            "newscount": 5,
+            "ogpimage": "https://arm-band.github.io/ieeenande/img/ie_triangle.jpg"
         },
         "about": {
             "title": "概要",
