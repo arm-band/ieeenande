@@ -4,6 +4,7 @@ var variables = variables;
 var commonVar = commonVar;
 id = filename.slice(filename.lastIndexOf("\\") + 1).replace(/\.ejs/g, ''); //PC内の絶対パスで最後の\の位置+1(=パスなしファイル名)から末尾までの文字列を切り取り、".ejs"の4文字を取り除く=拡張子なしのファイル名
 var newsBlock = newsBlock;
+var returnNews = name + pages + ".html";
 %>
 <%- include("util/_year", { variables, id }) %>
 <%- include("util/_pathdir", { variables, id }) %>
@@ -24,7 +25,7 @@ var newsBlock = newsBlock;
 
     <!-- main -->
     <main class="main <%= id %>" id="<%= id %>Main">
-<%- include("partial/_breadcrumb", { variables, id }) %>
+<%- include("partial/_breadcrumb_article", { variables, id, returnNews, newsBlock, path }) %>
         <section class="container-fluid">
             <div class="row">
                 <div class="col-xs-12">
@@ -50,7 +51,7 @@ var idTime = newsBlock.time.replace(/\//g, "");
                         	</div>
                         </div>
                     </article>
-<p class="btnWrapper"><a href="../news/news1.html" class="btnLink"><span>記事一覧に戻る</span></a></p>
+<p class="btnWrapper"><a href="<%= path %>news/<%= returnNews %>" class="btnLink"><span>記事一覧に戻る</span></a></p>
                 </div>
             </div>
         </section>

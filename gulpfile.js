@@ -167,7 +167,6 @@ gulp.task("news.ejs", function() {
     var commonVar = getCommonVar();
     var tempFile = dir.src.ejs + "/" + name + ".ejs"; //テンプレート
     var pages = 1; //ページカウンタ
-    var count = 0; //記事件数カウンタ
     var pageLength = Math.ceil(newsjson.news.length / newsjson.pagination); //ページの最大数
     var newsBlock = []; //1ページ辺りの記事のオブジェクト
 
@@ -207,6 +206,7 @@ gulp.task("article.ejs", function() {
     var variables = getVariables();
     var newsjson = getNews();
     var commonVar = getCommonVar();
+    var pages = 1; //ページカウンタ
     var tempFile = dir.src.ejs + "/article.ejs"; //テンプレート
 
     for(var i = 0; i < newsjson.news.length; i++) { //新着情報の件数
@@ -217,9 +217,12 @@ gulp.task("article.ejs", function() {
         .pipe(data(function(file) {
             return { "filename": file.path }
         }))
-        .pipe(ejs({ variables, newsBlock, commonVar, name }))
+        .pipe(ejs({ variables, newsBlock, commonVar, name, pages }))
         .pipe(rename(newsBlock.id + "-" + idTime + ".html"))
         .pipe(gulp.dest(dir.dist.html + "/articles"));
+        if(i % newsjson.pagination == (newsjson.pagination - 1)) { //記事件数を1ページ当たりの件数で割った剰余が(1ページ当たりの件数-1)の場合はhtmlを生成
+            pages++; //カウントアップ
+        }
     }
 });
 
