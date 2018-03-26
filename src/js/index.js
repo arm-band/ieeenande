@@ -79,7 +79,7 @@ function indexJadge() {
     var path = "";
     if(!$("#indexMain").length) { //トップページでない場合
         var path = "";
-        if($("#newsMain").length) { //新着情報の場合
+        if($("#newsMain").length || $("#articleMain").length) { //新着情報、記事の場合
            path = "../"; //1段階階層を戻る
         }
     }
