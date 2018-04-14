@@ -55,6 +55,7 @@ var navbarHeight = commonVar["navbar-height"].replace(/\px/g, ''); //commonVar�
                         <li><i class="fa fa-li fa-internet-explorer" aria-hidden="true"></i>一部のOpenTypeフォントを読み込めない。読み込み可能にするには、ツールを使ってフォントのデータを改変する必要があるのだが、その<strong>ツールはWindows10では動作しない</strong></li>
                         <li><i class="fa fa-li fa-internet-explorer" aria-hidden="true"></i>Flexboxの中で中央寄せのために<code>margin: 0 auto;</code>を使うと<strong>中央ではなく右に寄る</strong></li>
                         <li><i class="fa fa-li fa-internet-explorer" aria-hidden="true"></i><strong>スクロールバーの裏側までページが描画</strong>され、その分右に寄っているような表示になってしまう。右端から出現するタイプのページトップへ戻るボタンが実装されていると押しづらい</li>
+                        <li><i class="fa fa-li fa-internet-explorer" aria-hidden="true"></i>cssでレイアウトを決めるのに非常に便利なCSS Gridに<strong>一切対応していない</strong>(<a href="#future">IEの今後</a>の部分参照)。<code>float:left;</code>などで対応するのはハックであること、分かっています？</li>
                     </ul>
                     <p>IEさんマジ卍。</p>
                 </article>
@@ -89,6 +90,46 @@ var navbarHeight = commonVar["navbar-height"].replace(/\px/g, ''); //commonVar�
 %>
                     </ul>
                 </div>
+            </div>
+        </section>
+        <section class="container-fluid future" id="future">
+            <div class="grid_container">
+                <div class="page-header">
+                    <h2>使用について<small>About Usage</small></h2>
+                </div>
+                <blockquote>
+                    <p>マイクロソフトでは、コンシューマ向けの一般的なWebサイトのブラウジングにはMicrosoft Edgeを、IEとの後方互換性が必要な業務WebシステムではIEを利用いただくことをご提案しています。</p>
+                    <p><small><cite><a href="https://blogs.windows.com/japan/2015/08/24/evaeyeedge/">Windows 10 に搭載される 2 つの Webブラウザ、Microsoft EdgeとInternet Explorer 11 - Windows Blog for JapanWindows Blog for Japan</a> (2015/8/24)</cite></small></p>
+                </blockquote>
+                <p>つまり、一般ユーザーへの使用はWin10+Edgeを提案している、と言うことのようです。</p>
+            </div>
+            <div class="grid_container">
+                <div class="page-header">
+                    <h2>IEの今後について<small>Futures of IE</small></h2>
+                </div>
+                <p>IEの今後については、少し古いですが次のブログが参考になるでしょう。</p>
+                <ul>
+                    <li><a href="https://blogs.windows.com/japan/2015/08/24/evaeyeedge/">Windows 10 に搭載される 2 つの Webブラウザ、Microsoft EdgeとInternet Explorer 11 - Windows Blog for JapanWindows Blog for Japan</a></li>
+                </ul>
+            </div>
+            <div class="grid_container">
+                <div class="page-header">
+                    <h2>IEのサポート<small>Support of IE</small></h2>
+                </div>
+                <blockquote>
+                    <p>Internet ExplorerはIE11がWindows 7とWindows 8/8.1における最後のメジャーバージョンとなることが明らかになっています。セキュリティ対策などのマイナーアップデートは今後も行われますが、新機能が追加される予定はありません。</p>
+                    <p><small><cite><a href="https://blogs.windows.com/japan/2015/08/24/evaeyeedge/">Windows 10 に搭載される 2 つの Webブラウザ、Microsoft EdgeとInternet Explorer 11 - Windows Blog for JapanWindows Blog for Japan</a> (2015/8/24)</cite></small></p>
+                </blockquote>
+                <p>つまり、便利な新機能や規格、新しいcssの指定、新しいJSに対応することは非常に難しいのです。</p>
+                <p>また、</p>
+                <ul>
+                    <li>Windows7: 2020/1</li>
+                    <li>Windows8.1: 2023/1</li>
+                </ul>
+                <p>とそれぞれサポート期限を迎えます。Net Applicationsの調査によると、2017年12月現在のデスクトップPCの使用率のうち、Windows7が43.1%、Windows10が32.9%であるのに対してWindows8.1は5.7%であるため、Windows7のサポート期限である2020年を目処にIE11のサポートは少なくなっていくのではないでしょうか？</p>
+                <ul>
+                    <li><a href="https://news.mynavi.jp/article/20180104-566132/">Windows 10が増加 - 12月OSシェア | マイナビニュース</a></li>
+                </ul>
             </div>
         </section>
         <section class="container-fluid environment">

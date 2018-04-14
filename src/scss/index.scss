@@ -34,6 +34,37 @@
 //                                                *
 // ============================================= */
 .index {
+    .future {
+        display: grid;
+        @media(max-width: $screen-md - 1) {
+            grid: {
+                gap: 0.4rem;
+                template-columns: 1fr;
+            }
+        }
+        @media(min-width: $screen-md) {
+            grid: {
+                gap: 0.8rem;
+                template-columns: 0 0 1fr 3fr 2fr;
+            }
+        }
+        .grid_container {
+            @media(min-width: $screen-md) {
+                &:first-of-type {
+                    order: 3;
+                }
+                &:nth-of-type(2) {
+                    order: 1;
+                }
+                &:last-of-type {
+                    order: 2;
+                }
+            }
+            ul {
+                list-style-position: inside;
+            }
+        }
+    }
     .environment {
         &_ie {
             &:before {
